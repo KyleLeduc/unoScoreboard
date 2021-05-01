@@ -58,17 +58,31 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Uno!!!</h1>
-        <Lobby 
-          players={this.state.players}
-          addPlayer={this.addPlayer}
-          removePlayer={this.removePlayer}
-          startGame={this.startGame}
-        />
-        <Scoreboard 
-          players={this.state.players}
-          endRound={this.endRound}
-          endGame={this.endGame} 
-        />
+        <Switch>
+          <Route 
+            exact
+            path='/'
+            render={routeProps => (
+              <Lobby 
+                players={this.state.players}
+                addPlayer={this.addPlayer}
+                removePlayer={this.removePlayer}
+                startGame={this.startGame}
+              />
+            )} 
+          />
+          <Route
+            exact
+            path='/game'
+            render={routeProps => (
+              <Scoreboard 
+                players={this.state.players}
+                endRound={this.endRound}
+                endGame={this.endGame} 
+              />
+            )}
+          />
+        </Switch>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Player from './Player'
 
 export default class Scoreboard extends Component {
@@ -9,9 +10,6 @@ export default class Scoreboard extends Component {
         super(props);
     };
 
-    handleEndGame = () => {
-        this.props.endGame(this.state);
-    };
     renderPlayerList = () => {
         return this.props.players.map(player => {
             const { key, id, name, score } = player
@@ -33,7 +31,7 @@ export default class Scoreboard extends Component {
             <div>
                 <h2>Scoreboard</h2>
                 {this.renderPlayerList()}
-                <button onClick={this.handleEndGame}>End Game</button>
+                <Link to='/' onClick={this.props.endGame}>End Game</Link>
             </div>
         )
     };
