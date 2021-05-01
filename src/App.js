@@ -14,10 +14,13 @@ class App extends Component {
       ],
       playing: false,
       gameStats: {
-        roundsPlayed: 0
+        roundsPlayed: 0,
+        topScorer: {},
+        winScore: 500
       }
     };
   };
+
   addPlayer = (newPlayer) => {
     this.setState(st => ({
       players: [...this.state.players, newPlayer]
@@ -31,8 +34,8 @@ class App extends Component {
     });
   };
 
-  startGame = () => {
-    this.setState({playing: true});
+  startGame = (winScore) => {
+    this.setState({ playing: true, winScore });
   };
 
   endRound = (id) => {
@@ -40,13 +43,14 @@ class App extends Component {
     let newScores = this.state.players.map(player => 
       player.id === id ? {...player, score: (player.score + newScore) } : player
     );
+    const topScorer = newScores.slice().sort(function(a, b){return b.score - a.score})[0];
     this.setState(st => ({
       gameStats: {
-        roundsPlayed: st.gameStats.roundsPlayed + 1
+        roundsPlayed: st.gameStats.roundsPlayed + 1,
+        topScorer
       },
       players: [ ...newScores ]
     }));
-    // console.log(score, id);
   };
 
   endGame = (stats) => {
@@ -77,6 +81,7 @@ class App extends Component {
             render={routeProps => (
               <Scoreboard 
                 players={this.state.players}
+                topScorer={this.state.gameStats.topScorer}
                 endRound={this.endRound}
                 endGame={this.endGame} 
               />
