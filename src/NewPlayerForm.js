@@ -21,12 +21,13 @@ export default class NewPlayerForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                    <input 
-                        id='name' 
-                        name='name' 
-                        value={this.state.name} 
-                        onChange={this.handleChange}
-                    />
+                <input 
+                    id='name' 
+                    name='name'
+                    placeholder='Player Name'
+                    value={this.state.name} 
+                    onChange={this.handleChange}
+                />
                 <button>Add Player</button>
             </form>
         )
