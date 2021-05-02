@@ -11,7 +11,7 @@ export default class Scoreboard extends Component {
     };
 
     renderPlayerList = () => {
-        return this.props.players.map(player => {
+        return this.props.gameSettings.players.map(player => {
             const { key, id, name, score } = player
             return  (
                 <Player
@@ -31,7 +31,6 @@ export default class Scoreboard extends Component {
         return (
             <div>
                 <h2>Scoreboard</h2>
-                {/* {console.log(this.props.topScorer)} */}
                 {topScorer && Object.keys(topScorer).length !== 0 ? <h4>{`${topScorer.name} is in the lead with ${topScorer.score} points!`}</h4> : undefined}
                 {this.renderPlayerList()}
                 <Link to='/' onClick={this.props.endGame}>End Game</Link>

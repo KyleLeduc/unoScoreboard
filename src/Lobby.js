@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NewPlayerForm from './NewPlayerForm';
+import GameSettingsForm from './GameSettingsForm';
 import Player from './Player';
 
 export default class Lobby extends Component {
@@ -11,19 +12,8 @@ export default class Lobby extends Component {
         };
     };
 
-    handleChange = (evt) => {
-        const { winScore, value } = evt.target;
-        this.setState({
-            [winScore]: value
-        });
-    }
-
-    handleStartGame = () => {
-        this.props.startGame(this.state)
-    }
-
     renderPlayerList = () => {
-        return this.props.players.map(player => {
+        return this.props.gameSettings.players.map(player => {
             const { key, id, name, score } = player
             return  (
                 <Player
@@ -43,18 +33,10 @@ export default class Lobby extends Component {
             <div>
                 {this.renderPlayerList()}
                 <NewPlayerForm handleClick={this.props.addPlayer} />
-                <div>
-                    <label htmlFor='winScore'>Winning Score</label>
-                    <input 
-                        id='winScore' 
-                        name='winScore' 
-                        value={this.state.winScore} 
-                        onChange={this.handleChange}
-                    />
-                </div>
-                <div>
-                    <Link to='/game' onClick={this.handleStartGame}>Start</Link>
-                </div>
+                <GameSettingsForm 
+                    winScore={this.props.gameSettings.winScore}
+                    startGame={this.props.startGame}
+                />
             </div>
         )
     }

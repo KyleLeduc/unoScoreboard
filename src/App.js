@@ -8,39 +8,49 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: [
-        { name: 'Fiona', score: 0, key: 1, id: 1 },
-        { name: 'Kyle', score: 0, key: 2, id: 2 }
-      ],
+      gameSettings: {
+        winScore: 500,
+        players: [
+          { name: 'Fiona', score: 0, key: 1, id: 1 },
+          { name: 'Kyle', score: 0, key: 2, id: 2 }
+        ]
+      },
       playing: false,
       gameStats: {
         roundsPlayed: 0,
         topScorer: {},
-        winScore: 500
       }
     };
   };
 
   addPlayer = (newPlayer) => {
     this.setState(st => ({
-      players: [...this.state.players, newPlayer]
+      gameSettings: {
+        players: [...this.state.gameSettings.players, newPlayer]
+      }
     }));
   };
 
   removePlayer = (id) => {
-    console.log(id)
     this.setState({
-        players: this.state.players.filter(player => player.id !== id)
+      gameSettings: {
+        players: this.state.gameSettings.players.filter(player => player.id !== id)
+      }
     });
   };
 
   startGame = (winScore) => {
-    this.setState({ playing: true, winScore });
+    this.setState({ 
+      playing: true, 
+      gameSettings: {
+        players: this.state.gameSettings.players,
+        ...winScore
+      }});
   };
 
   endRound = (id) => {
     let newScore = parseInt(prompt('How many points?')); 
-    let newScores = this.state.players.map(player => 
+    let newScores = this.state.gameSettings.players.map(player => 
       player.id === id ? {...player, score: (player.score + newScore) } : player
     );
     const topScorer = newScores.slice().sort(function(a, b){return b.score - a.score})[0];
@@ -54,7 +64,6 @@ class App extends Component {
   };
 
   endGame = (stats) => {
-    console.log(stats);
     this.setState({playing: false});
   }
 
@@ -67,8 +76,8 @@ class App extends Component {
             exact
             path='/'
             render={routeProps => (
-              <Lobby 
-                players={this.state.players}
+              <Lobby
+                gameSettings={this.state.gameSettings}
                 addPlayer={this.addPlayer}
                 removePlayer={this.removePlayer}
                 startGame={this.startGame}
@@ -80,7 +89,7 @@ class App extends Component {
             path='/game'
             render={routeProps => (
               <Scoreboard 
-                players={this.state.players}
+                gameSettings={this.state.gameSettings}
                 topScorer={this.state.gameStats.topScorer}
                 endRound={this.endRound}
                 endGame={this.endGame} 
