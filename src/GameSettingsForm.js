@@ -10,14 +10,15 @@ export default class GameSettingsForm extends Component {
     handleSubmit = (evt) => {
         evt.preventDefault();
         // const key = uuid();
-        // this.props.handleClick({...this.state, key, id: key, score: 0});
-        this.setState({ winScore: ''})
+        // this.props.handleClick({...this.state});
+        // this.setState({ winScore: ''})
     }
     handleChange = (evt) => {
-        console.log(evt.target.name)
+        // console.log(evt.target.name)
         const { name, value } = evt.target;
         this.setState({
-            [name]: value
+            // prevents non number values from being input
+            [name]: parseInt(value.replace(/\D/,''))
         });
     }
     render() {
@@ -30,7 +31,7 @@ export default class GameSettingsForm extends Component {
                     value={this.state.winScore}
                     onChange={this.handleChange}
                 />
-                <Link to='/game' onClick={() => this.props.startGame(this.state)}>Start</Link>
+                <Link to='/game' onClick={() => this.props.startGame(this.state)}><button>Start Game</button></Link>
             </form>
         )
     }
