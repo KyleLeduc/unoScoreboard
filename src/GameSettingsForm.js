@@ -9,12 +9,8 @@ export default class GameSettingsForm extends Component {
     }
     handleSubmit = (evt) => {
         evt.preventDefault();
-        // const key = uuid();
-        // this.props.handleClick({...this.state});
-        // this.setState({ winScore: ''})
     }
     handleChange = (evt) => {
-        // console.log(evt.target.name)
         const { name, value } = evt.target;
         this.setState({
             // prevents non number values from being input
