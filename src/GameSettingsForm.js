@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 
 export default class GameSettingsForm extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ export default class GameSettingsForm extends Component {
     }
     handleSubmit = (evt) => {
         evt.preventDefault();
-        const key = uuid();
+        // const key = uuid();
         // this.props.handleClick({...this.state, key, id: key, score: 0});
         this.setState({ winScore: ''})
     }

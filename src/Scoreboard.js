@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Player from './Player'
 
 export default class Scoreboard extends Component {
     static defaultProps = {
         timestamp: new Date()
     };
+    // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
     };
