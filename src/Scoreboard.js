@@ -10,9 +10,11 @@ export default class ScoreBoard extends Component {
         {Object.keys(topScorer).length === 0 ? <Redirect to="/" /> : undefined}
         <h2>{`${topScorer.name} wins with ${topScorer.score} points!`}</h2>
         {players.map(player => {
-          return <div key={player.id}>{`${player.name} - ${player.score}`}</div>
+          return (
+            <div key={player.id}>{`${player.name} - ${player.score}`}</div>
+          );
         })}
-        <Link to='/'>New Game</Link>
+        <Link to="/">New Game</Link>
       </div>
     );
   }

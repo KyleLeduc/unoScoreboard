@@ -121,7 +121,12 @@ class App extends Component {
           <Route
             exact
             path="/game-over"
-            render={routeProps => <Scoreboard gameStats={this.state.gameStats} gameSettings={this.state.gameSettings} />}
+            render={routeProps => (
+              <Scoreboard
+                gameStats={this.state.gameStats}
+                gameSettings={this.state.gameSettings}
+              />
+            )}
           />
         </Switch>
       </div>
