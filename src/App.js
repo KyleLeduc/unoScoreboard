@@ -23,6 +23,10 @@ class App extends Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    this.winCheck(prevProps);
+  }
+
   addPlayer = newPlayer => {
     this.setState(st => ({
       gameSettings: {
@@ -74,6 +78,16 @@ class App extends Component {
   endGame = stats => {
     this.setState({ playing: false });
   };
+
+  winCheck = prevProps => {
+    const { topScorer, gameSettings } = this.state;
+    if (Object.keys(topScorer).length > 0 &&
+      topScorer.score >= gameSettings.winScore) {
+      if (prevProps.topScorer !== topScorer) {
+        this.endGame();
+      }
+    }
+  }
 
   render() {
     return (

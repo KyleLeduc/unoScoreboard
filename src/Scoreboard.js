@@ -40,9 +40,13 @@ export default class Scoreboard extends Component {
       case 'newGame':
         return <h4>Select the round winners name to begin</h4>;
       case 'gamePlaying':
-        return <h4>{`${topScorer.name} is in the lead with ${topScorer.score} points!`}</h4>;
+        return (
+          <h4>{`${topScorer.name} is in the lead with ${topScorer.score} points!`}</h4>
+        );
       case 'gameOver':
-        return <h4>{`${topScorer.name} has won with ${topScorer.score} points!`}</h4>;
+        return (
+          <h4>{`${topScorer.name} has won with ${topScorer.score} points!`}</h4>
+        );
 
       default:
         break;
