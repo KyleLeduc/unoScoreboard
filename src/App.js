@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Scoreboard from './Scoreboard';
+import GameWindow from './GameWindow';
 import Lobby from './Lobby';
 import './App.css';
 
@@ -84,7 +84,6 @@ class App extends Component {
     const { topScorer } = this.state.gameStats;
     if (topScorer.score >= winScore) {
       this.endGame();
-      // this.setState({ gameStats: { ...this.state.gameStats, playing: false } });
     }
   };
 
@@ -109,7 +108,7 @@ class App extends Component {
             exact
             path="/game"
             render={routeProps => (
-              <Scoreboard
+              <GameWindow
                 gameSettings={this.state.gameSettings}
                 topScorer={this.state.gameStats.topScorer}
                 endRound={this.endRound}

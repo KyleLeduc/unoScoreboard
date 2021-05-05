@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Player from './Player';
 
-export default class Scoreboard extends Component {
+export default class GameWindow extends Component {
   static defaultProps = {
     timestamp: new Date(),
   };
