@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import GameWindow from './GameWindow';
 import Lobby from './Lobby';
+import GameWindow from './GameWindow';
+import Scoreboard from './Scoreboard';
 import './App.css';
 
 class App extends Component {
@@ -63,6 +64,7 @@ class App extends Component {
     this.setState(
       {
         gameStats: {
+          ...this.state.gameStats,
           roundsPlayed: this.state.gameStats.roundsPlayed + 1,
           topScorer,
         },
@@ -75,16 +77,16 @@ class App extends Component {
     );
   };
 
-  endGame = () => {
-    this.setState({ gameStats: { ...this.state.gameStats, playing: false } });
-  };
-
   winCheck = () => {
     const { winScore } = this.state.gameSettings;
     const { topScorer } = this.state.gameStats;
     if (topScorer.score >= winScore) {
       this.endGame();
     }
+  };
+
+  endGame = () => {
+    this.setState({ gameStats: { ...this.state.gameStats, playing: false } });
   };
 
   render() {
@@ -110,11 +112,16 @@ class App extends Component {
             render={routeProps => (
               <GameWindow
                 gameSettings={this.state.gameSettings}
-                topScorer={this.state.gameStats.topScorer}
+                gameStats={this.state.gameStats}
                 endRound={this.endRound}
                 endGame={this.endGame}
               />
             )}
+          />
+          <Route
+            exact
+            path="/game-over"
+            render={routeProps => <Scoreboard gameStats={this.state.gameStats} gameSettings={this.state.gameSettings} />}
           />
         </Switch>
       </div>

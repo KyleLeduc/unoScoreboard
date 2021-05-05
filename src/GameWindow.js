@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Player from './Player';
 
 export default class GameWindow extends Component {
@@ -28,7 +28,8 @@ export default class GameWindow extends Component {
   };
 
   renderMessage = () => {
-    const { topScorer, gameSettings } = this.props;
+    const { gameSettings } = this.props;
+    const { topScorer } = this.props.gameStats;
     const msg =
       topScorer.score >= gameSettings.winScore
         ? 'gameOver'
@@ -55,6 +56,9 @@ export default class GameWindow extends Component {
   render() {
     return (
       <div>
+        {this.props.gameStats.playing ? undefined : (
+          <Redirect to="/game-over" />
+        )}
         <h2>Scoreboard</h2>
         {this.renderMessage()}
         {this.renderPlayerList()}
