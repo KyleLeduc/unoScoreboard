@@ -15,16 +15,12 @@ class App extends Component {
           { name: 'Kyle', score: 0, key: 2, id: 2 },
         ],
       },
-      playing: false,
       gameStats: {
+        playing: false,
         roundsPlayed: 0,
         topScorer: {},
       },
     };
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    this.winCheck(prevProps);
   }
 
   addPlayer = newPlayer => {
@@ -46,10 +42,11 @@ class App extends Component {
   };
 
   startGame = winScore => {
+    const { gameSettings, gameStats } = this.state;
     this.setState({
-      playing: true,
+      gameStats: { ...gameStats, playing: true },
       gameSettings: {
-        players: this.state.gameSettings.players,
+        ...gameSettings,
         ...winScore,
       },
     });
@@ -63,31 +60,33 @@ class App extends Component {
     const topScorer = newScores.slice().sort(function (a, b) {
       return b.score - a.score;
     })[0];
-    this.setState(st => ({
-      gameStats: {
-        roundsPlayed: st.gameStats.roundsPlayed + 1,
-        topScorer,
+    this.setState(
+      {
+        gameStats: {
+          roundsPlayed: this.state.gameStats.roundsPlayed + 1,
+          topScorer,
+        },
+        gameSettings: {
+          ...this.state.gameSettings,
+          players: [...newScores],
+        },
       },
-      gameSettings: {
-        ...st.gameSettings,
-        players: [...newScores],
-      },
-    }));
+      () => this.winCheck(),
+    );
   };
 
-  endGame = stats => {
-    this.setState({ playing: false });
+  endGame = () => {
+    this.setState({ gameStats: { ...this.state.gameStats, playing: false } });
   };
 
-  winCheck = prevProps => {
-    const { topScorer, gameSettings } = this.state;
-    if (Object.keys(topScorer).length > 0 &&
-      topScorer.score >= gameSettings.winScore) {
-      if (prevProps.topScorer !== topScorer) {
-        this.endGame();
-      }
+  winCheck = () => {
+    const { winScore } = this.state.gameSettings;
+    const { topScorer } = this.state.gameStats;
+    if (topScorer.score >= winScore) {
+      this.endGame();
+      // this.setState({ gameStats: { ...this.state.gameStats, playing: false } });
     }
-  }
+  };
 
   render() {
     return (
