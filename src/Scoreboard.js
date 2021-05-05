@@ -27,21 +27,32 @@ export default class Scoreboard extends Component {
     });
   };
 
-  render() {
+  renderMessage = () => {
     const { topScorer, gameSettings } = this.props;
-    const leader =
-      topScorer && Object.keys(topScorer).length > 0 ? (
-        <h4>{`${topScorer.name} is in the lead with ${topScorer.score} points!`}</h4>
-      ) : (
-        <h4>End the round to begin a game</h4>
-      );
-    const winner = (
-      <h4>{`${topScorer.name} wins with ${topScorer.score} points!`}</h4>
-    );
+    const msg =
+      topScorer.score >= gameSettings.winScore
+        ? 'gameOver'
+        : topScorer && Object.keys(topScorer).length > 0
+        ? 'gamePlaying'
+        : 'newGame';
+
+    switch (msg) {
+      case 'newGame':
+        return <h4>Select the round winners name to begin</h4>;
+      case 'gamePlaying':
+        return <h4>{`${topScorer.name} is in the lead with ${topScorer.score} points!`}</h4>;
+      case 'gameOver':
+        return <h4>{`${topScorer.name} has won with ${topScorer.score} points!`}</h4>;
+
+      default:
+        break;
+    }
+  };
+  render() {
     return (
       <div>
         <h2>Scoreboard</h2>
-        {topScorer.score > gameSettings.winScore ? winner : leader}
+        {this.renderMessage()}
         {this.renderPlayerList()}
         <Link to="/" onClick={this.props.endGame}>
           End Game
