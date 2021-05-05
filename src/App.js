@@ -6,15 +6,21 @@ import Scoreboard from './Scoreboard';
 import './App.css';
 
 class App extends Component {
+  static defaultProps = {
+    resetGame: {
+      gameStats: {
+        playing: false,
+        roundsPlayed: 0,
+        topScorer: {},
+      },
+    },
+  };
   constructor(props) {
     super(props);
     this.state = {
       gameSettings: {
         winScore: 500,
-        players: [
-          { name: 'Fiona', score: 0, key: 1, id: 1 },
-          { name: 'Kyle', score: 0, key: 2, id: 2 },
-        ],
+        players: [],
       },
       gameStats: {
         playing: false,
@@ -89,6 +95,18 @@ class App extends Component {
     this.setState({ gameStats: { ...this.state.gameStats, playing: false } });
   };
 
+  resetGame = () => {
+    const { players, winScore } = this.state.gameSettings;
+    const resetPlayers = players.map(player => {
+      player.score = 0;
+      return player;
+    });
+    this.setState({
+      ...this.props.resetGame,
+      gameSettings: { winScore, players: resetPlayers },
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -125,6 +143,7 @@ class App extends Component {
               <Scoreboard
                 gameStats={this.state.gameStats}
                 gameSettings={this.state.gameSettings}
+                resetGame={this.resetGame}
               />
             )}
           />

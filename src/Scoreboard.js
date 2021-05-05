@@ -14,7 +14,7 @@ export default class ScoreBoard extends Component {
             <div key={player.id}>{`${player.name} - ${player.score}`}</div>
           );
         })}
-        <Link to="/">New Game</Link>
+        <Link onClick={this.props.resetGame} to="/">New Game</Link>
       </div>
     );
   }
