@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
+import './NewPlayerForm.css';
 
 export default class NewPlayerForm extends Component {
   constructor(props) {
@@ -20,8 +21,9 @@ export default class NewPlayerForm extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="NewPlayerForm" onSubmit={this.handleSubmit}>
         <input
+          className="NewPlayerForm-Input"
           id="name"
           name="name"
           placeholder="Player Name"

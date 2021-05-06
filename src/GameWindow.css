@@ -1,0 +1,8 @@
+.GameWindow {
+    display: flex;
+    flex-direction: column;
+}
+
+.GameWindow-endGame {
+    margin-top: 2rem;
+}

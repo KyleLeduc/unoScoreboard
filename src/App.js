@@ -110,7 +110,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Uno!!!</h1>
+        <h1>Uno Score Tracker</h1>
         <Switch>
           <Route
             exact

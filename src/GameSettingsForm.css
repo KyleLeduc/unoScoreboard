@@ -1,0 +1,12 @@
+.GameSettingsForm {
+    /* display: flex;
+    flex-direction: column; */
+    width: 60%;
+    align-content: center;
+    align-self: center;
+    max-width: 300px;
+}
+
+.GameSettingsForm-winScore {
+    margin-top: 5px;
+}

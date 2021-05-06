@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import NewPlayerForm from './NewPlayerForm';
 import GameSettingsForm from './GameSettingsForm';
 import Player from './Player';
+import './Lobby.css';
 
 export default class Lobby extends Component {
   constructor(props) {
@@ -30,13 +32,18 @@ export default class Lobby extends Component {
 
   render() {
     return (
-      <div>
-        {this.renderPlayerList()}
-        <NewPlayerForm handleClick={this.props.addPlayer} />
+      <div className="Lobby">
+        <h2>Lobby</h2>
         <GameSettingsForm
           winScore={this.props.gameSettings.winScore}
           startGame={this.props.startGame}
         />
+        <NewPlayerForm handleClick={this.props.addPlayer} />
+        {this.renderPlayerList()}
+
+        <Link to="/game" onClick={() => this.props.startGame(this.state)}>
+          <button>Start Game</button>
+        </Link>
       </div>
     );
   }

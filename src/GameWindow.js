@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Player from './Player';
+import './GameWindow.css';
 
 export default class GameWindow extends Component {
   static defaultProps = {
@@ -51,14 +52,16 @@ export default class GameWindow extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="GameWindow">
         {this.props.gameStats.playing ? undefined : (
           <Redirect to="/game-over" />
         )}
-        <h2>Scoreboard</h2>
         {this.renderMessage()}
         {this.renderPlayerList()}
-        <Link to="/" onClick={this.props.endGame}>
+        <Link
+          className="GameWindow-endGame"
+          to="/"
+          onClick={this.props.endGame}>
           End Game
         </Link>
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './GameSettingsForm.css';
 // import { v4 as uuid } from 'uuid';
 
 export default class GameSettingsForm extends Component {
@@ -19,17 +20,16 @@ export default class GameSettingsForm extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="GameSettingsForm" onSubmit={this.handleSubmit}>
+        <h3>Settings</h3>
         <label htmlFor="winScore">Winning Score: </label>
         <input
+          className="GameSettingsForm-winScore"
           id="winScore"
           name="winScore"
           value={this.state.winScore}
           onChange={this.handleChange}
         />
-        <Link to="/game" onClick={() => this.props.startGame(this.state)}>
-          <button>Start Game</button>
-        </Link>
       </form>
     );
   }

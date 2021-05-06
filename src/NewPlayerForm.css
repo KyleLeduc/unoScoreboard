@@ -1,0 +1,13 @@
+.NewPlayerForm {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 60%;
+    max-width: 300px;
+}
+
+.NewPlayerForm-Input {
+    margin-right: 1rem;
+    flex-grow: 2;
+}

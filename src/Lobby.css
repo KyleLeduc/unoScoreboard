@@ -1,0 +1,7 @@
+.Lobby {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    align-self: center;
+    width: 60%;
+}
