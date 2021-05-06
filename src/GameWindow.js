@@ -28,12 +28,10 @@ export default class GameWindow extends Component {
   };
 
   renderMessage = () => {
-    const { gameSettings } = this.props;
+    const { winScore } = this.props.gameSettings;
     const { topScorer } = this.props.gameStats;
     const msg =
-      topScorer.score >= gameSettings.winScore
-        ? 'gameOver'
-        : topScorer && Object.keys(topScorer).length > 0
+      topScorer && Object.keys(topScorer).length > 0
         ? 'gamePlaying'
         : 'newGame';
 
@@ -42,11 +40,9 @@ export default class GameWindow extends Component {
         return <h4>Select the round winners name to begin</h4>;
       case 'gamePlaying':
         return (
-          <h4>{`${topScorer.name} is in the lead with ${topScorer.score} points!`}</h4>
-        );
-      case 'gameOver':
-        return (
-          <h4>{`${topScorer.name} has won with ${topScorer.score} points!`}</h4>
+          <h4>{`${topScorer.name} is ${
+            winScore - topScorer.score
+          } points away from winning`}</h4>
         );
 
       default:
