@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './GameSettingsForm.css';
-// import { v4 as uuid } from 'uuid';
 
 export default class GameSettingsForm extends Component {
   constructor(props) {

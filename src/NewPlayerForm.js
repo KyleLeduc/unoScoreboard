@@ -30,7 +30,7 @@ export default class NewPlayerForm extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button>Add Player</button>
+        <button className="NewPlayerForm-button">Add Player</button>
       </form>
     );
   }

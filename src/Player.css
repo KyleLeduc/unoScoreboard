@@ -4,5 +4,22 @@
     justify-content: space-between;
     align-items: baseline;
     align-self: center;
-    width: 60%;
+    width: 80%;
+}
+
+.Player-remove {
+    background-color: #D72600;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 20%;
+    font-size: 1.05em;
+    box-shadow: -1px 1px 3px black;
+}
+.Player-name {
+    margin: 0.5em 0.5em;
+}
+
+.Player-score {
+    margin-left: auto;
 }

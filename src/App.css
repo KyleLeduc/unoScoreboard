@@ -4,5 +4,8 @@
   flex-direction: column;
   align-content: center;
   text-align: center;
-  height: 100vh;
+  height: fit-content;
+  max-width: 600px;
+  margin: auto;
+  width: 60%;
 }

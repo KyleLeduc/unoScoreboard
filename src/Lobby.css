@@ -1,7 +1,16 @@
 .Lobby {
     display: flex;
     flex-direction: column;
-    align-content: flex-end;
     align-self: center;
-    width: 60%;
+    min-width: 350px;
+    padding: 1em 0;
+    border: 1em solid white;
+    border-radius: 7%;
+    background-color: #ECD407;
+}
+
+.Lobby-startGame {
+    text-decoration: none;
+    -webkit-text-stroke: 0.75px black;
+    color: white;
 }

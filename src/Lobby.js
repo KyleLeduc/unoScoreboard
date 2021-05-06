@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import NewPlayerForm from './NewPlayerForm';
 import GameSettingsForm from './GameSettingsForm';
@@ -41,8 +40,11 @@ export default class Lobby extends Component {
         <NewPlayerForm handleClick={this.props.addPlayer} />
         {this.renderPlayerList()}
 
-        <Link to="/game" onClick={() => this.props.startGame(this.state)}>
-          <button>Start Game</button>
+        <Link
+          className="Lobby-startGame"
+          to="/game"
+          onClick={() => this.props.startGame(this.state)}>
+          Start Game
         </Link>
       </div>
     );
