@@ -24,6 +24,7 @@ export default class Lobby extends Component {
           score={score}
           handleRemove={this.props.removePlayer}
           buttonText="X"
+          playing={this.props.playing}
         />
       );
     });
@@ -31,21 +32,23 @@ export default class Lobby extends Component {
 
   render() {
     return (
-      <div className="Lobby">
-        <h2>Lobby</h2>
-        <GameSettingsForm
-          winScore={this.props.gameSettings.winScore}
-          startGame={this.props.startGame}
-        />
-        <NewPlayerForm handleClick={this.props.addPlayer} />
-        {this.renderPlayerList()}
+      <div className="Lobby-wrap">
+        <div className="Lobby">
+          <h1>Uno Score Tracker</h1>
+          <GameSettingsForm
+            winScore={this.props.gameSettings.winScore}
+            startGame={this.props.startGame}
+          />
+          <NewPlayerForm handleClick={this.props.addPlayer} />
+          {this.renderPlayerList()}
 
-        <Link
-          className="Lobby-startGame"
-          to="/game"
-          onClick={() => this.props.startGame(this.state)}>
-          Start Game
-        </Link>
+          <Link
+            className="Lobby-startGame"
+            to="/game"
+            onClick={() => this.props.startGame(this.state)}>
+            Start Game
+          </Link>
+        </div>
       </div>
     );
   }

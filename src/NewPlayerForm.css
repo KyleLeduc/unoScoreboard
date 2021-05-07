@@ -1,27 +1,27 @@
 .NewPlayerForm {
-    margin: 1rem;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 60%;
-    max-width: 300px;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 60%;
+  max-width: 300px;
 }
 
 .NewPlayerForm-Input {
-    margin-right: 1rem;
-    flex-grow: 2;
-    box-shadow: -1px 1px 3px black;
-    border-radius: 5px;
-    border: 1px solid gray;
+  margin-right: 1rem;
+  flex-grow: 2;
+  box-shadow: -1px 1px 3px black;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
 
 .NewPlayerForm-button {
-    border: none;
-    border-radius: 20%;
-    box-shadow: -1px 1px 3px black;
-    font-weight: 900;
-    padding: 5px 10px;
-    color: white;
-    -webkit-text-stroke: 0px white;
-    background-color: #379711;
+  border: none;
+  border-radius: 20%;
+  box-shadow: -1px 1px 3px black;
+  font-weight: 900;
+  padding: 5px 10px;
+  color: white;
+  -webkit-text-stroke: 0px white;
+  background-color: #379711;
 }

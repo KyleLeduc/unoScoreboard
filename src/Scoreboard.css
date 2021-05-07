@@ -1,8 +1,4 @@
-.GameWindow h1 {
-  margin: 0;
-}
-
-.GameWindow {
+.Scoreboard {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -10,10 +6,15 @@
   padding: 1em 0;
   border: 1em solid white;
   border-radius: 7%;
-  background-color: #379711;
+  background-color: #0956bf;
 }
 
-.GameWindow-endGame {
+.Scoreboard-message {
+  width: 100%;
+  text-align: center;
+}
+
+.Scoreboard-newGame {
   margin-top: 2rem;
   text-decoration: none;
   -webkit-text-stroke: 0.75px black;

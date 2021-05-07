@@ -110,7 +110,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Uno Score Tracker</h1>
         <Switch>
           <Route
             exact
@@ -121,6 +120,7 @@ class App extends Component {
                 addPlayer={this.addPlayer}
                 removePlayer={this.removePlayer}
                 startGame={this.startGame}
+                playing={this.state.gameStats.playing}
               />
             )}
           />

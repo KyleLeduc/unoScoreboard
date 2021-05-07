@@ -10,21 +10,22 @@ export default class Player extends Component {
       handleRemove,
       handleEndRound,
       buttonText,
+      playing,
     } = this.props;
-    const button = (
+    const removeButton = (
       <button className="Player-remove" onClick={() => handleRemove(id)}>
         {buttonText}
       </button>
     );
     return (
       <div className="Player">
-        {handleRemove ? button : undefined}
         <h3
           className="Player-name"
           onClick={() => (handleEndRound ? handleEndRound(id) : undefined)}>
-          {name}
+          <span>{name}</span>
+          {playing ? score : undefined}
         </h3>
-        <p className="Player-score">Score: {score}</p>
+        {playing ? undefined : removeButton}
       </div>
     );
   }

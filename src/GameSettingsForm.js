@@ -19,10 +19,9 @@ export default class GameSettingsForm extends Component {
   render() {
     return (
       <form className="GameSettingsForm" onSubmit={this.handleSubmit}>
-        <h3>Settings</h3>
         <label htmlFor="winScore">Winning Score: </label>
         <input
-          className="GameSettingsForm-winScore"
+          className="GameSettingsForm-winScoreInput"
           id="winScore"
           name="winScore"
           value={this.state.winScore}

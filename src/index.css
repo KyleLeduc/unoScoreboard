@@ -12,7 +12,9 @@ body {
   font-weight: 900;
   font-size: 1.5em;
   color: white;
-  text-shadow: -0.1px 0px 0px black, -0.25px 0px 0px black, -0.5px 0px 0px black, -0.75px 0.25px 0px black,  -1px 0.5px 0px black, -1.25px 0.75px 0px black, -1.5px 1px 0px black;
+  text-shadow: -0.1px 0px 0px black, -0.25px 0px 0px black, -0.5px 0px 0px black,
+    -0.75px 0.25px 0px black, -1px 0.5px 0px black, -1.25px 0.75px 0px black,
+    -1.5px 1px 0px black;
   -webkit-text-stroke: 0.75px black;
   letter-spacing: 2px;
 }

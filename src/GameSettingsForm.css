@@ -1,14 +1,15 @@
 .GameSettingsForm {
-    width: 60%;
-    align-content: center;
-    align-self: center;
-    max-width: 300px;
+  width: 70%;
+  align-content: center;
+  align-self: center;
+  max-width: 300px;
+  margin-top: 1em;
 }
 
-.GameSettingsForm-winScore {
-    margin-top: 5px;
-    box-shadow: -1px 1px 3px black;
-    /* font-size: 0.8em; */
-    border-radius: 5px;
-    border: 1px solid gray;
+.GameSettingsForm-winScoreInput {
+  margin-top: 5px;
+  box-shadow: -1px 1px 3px black;
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 100%;
 }

@@ -23,6 +23,7 @@ export default class GameWindow extends Component {
           score={score}
           handleEndRound={this.props.endRound}
           buttonText="End Round"
+          playing={this.props.gameStats.playing}
         />
       );
     });
@@ -53,6 +54,7 @@ export default class GameWindow extends Component {
   render() {
     return (
       <div className="GameWindow">
+        <h1>Uno Score Tracker</h1>
         {this.props.gameStats.playing ? undefined : (
           <Redirect to="/game-over" />
         )}

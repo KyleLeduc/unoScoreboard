@@ -1,11 +1,9 @@
 .App {
   display: flex;
-  /* justify-content: center; */
   flex-direction: column;
   align-content: center;
   text-align: center;
   height: fit-content;
-  max-width: 600px;
   margin: auto;
-  width: 60%;
+  width: 90%;
 }
