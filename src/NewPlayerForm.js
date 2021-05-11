@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
 import './NewPlayerForm.css';
+import Button from '@material-ui/core/Button';
+import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 
 export default class NewPlayerForm extends Component {
   constructor(props) {
@@ -30,7 +32,11 @@ export default class NewPlayerForm extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button className="NewPlayerForm-button">Add Player</button>
+        <Button
+          className="NewPlayerForm-button"
+          style={{ backgroundColor: '#379711' }}>
+          <PersonAddOutlinedIcon />
+        </Button>
       </form>
     );
   }

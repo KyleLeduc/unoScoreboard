@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Player.css';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
 
 export default class Player extends Component {
   render() {
@@ -9,13 +11,16 @@ export default class Player extends Component {
       id,
       handleRemove,
       handleEndRound,
-      buttonText,
       playing,
     } = this.props;
     const removeButton = (
-      <button className="Player-remove" onClick={() => handleRemove(id)}>
-        {buttonText}
-      </button>
+      <Button
+        size='small'
+        className="Player-remove"
+        onClick={() => handleRemove(id)}
+        style={{ backgroundColor: '#d72600' }}>
+        <DeleteIcon style={{ color: 'white' }} />
+      </Button>
     );
     return (
       <div className="Player">
@@ -23,9 +28,8 @@ export default class Player extends Component {
           className="Player-name"
           onClick={() => (handleEndRound ? handleEndRound(id) : undefined)}>
           <span>{name}</span>
-          {playing ? score : undefined}
+          {playing ? score : removeButton}
         </h3>
-        {playing ? undefined : removeButton}
       </div>
     );
   }
