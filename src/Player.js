@@ -15,7 +15,7 @@ export default class Player extends Component {
     } = this.props;
     const removeButton = (
       <Button
-        size='small'
+        size="small"
         className="Player-remove"
         onClick={() => handleRemove(id)}
         style={{ backgroundColor: '#d72600' }}>
