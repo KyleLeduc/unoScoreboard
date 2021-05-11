@@ -23,7 +23,6 @@ export default class Lobby extends Component {
           name={name}
           score={score}
           handleRemove={this.props.removePlayer}
-          buttonText="X"
           playing={this.props.playing}
         />
       );

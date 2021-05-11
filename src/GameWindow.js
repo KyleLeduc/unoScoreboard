@@ -22,7 +22,6 @@ export default class GameWindow extends Component {
           name={name}
           score={score}
           handleEndRound={this.props.endRound}
-          buttonText="End Round"
           playing={this.props.gameStats.playing}
         />
       );
