@@ -16,11 +16,6 @@
 }
 
 .NewPlayerForm-button {
-  /* border: none; */
-  /* border-radius: 20%; */
   box-shadow: -1px 1px 3px black;
-  /* font-weight: 900; */
-  /* padding: 5px 10px; */
   color: white;
-  /* -webkit-text-stroke: 0px white; */
 }

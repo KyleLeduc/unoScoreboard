@@ -33,6 +33,7 @@ export default class NewPlayerForm extends Component {
           onChange={this.handleChange}
         />
         <Button
+          type="submit"
           className="NewPlayerForm-button"
           style={{ backgroundColor: '#379711' }}>
           <PersonAddOutlinedIcon />
