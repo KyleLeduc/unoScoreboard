@@ -6,13 +6,10 @@ import Player from './Player';
 import './Lobby.css';
 
 export default class Lobby extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   renderPlayerList = () => {
     return this.props.gameSettings.players.map(player => {
-      const { key, id, name, score } = player;
+      const { key, id, name } = player;
       return (
         <Player
           key={key}
