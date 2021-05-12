@@ -6,7 +6,6 @@ import Player from './Player';
 import './Lobby.css';
 
 export default class Lobby extends Component {
-
   renderPlayerList = () => {
     return this.props.gameSettings.players.map(player => {
       const { key, id, name } = player;

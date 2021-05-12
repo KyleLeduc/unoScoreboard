@@ -68,36 +68,38 @@ class App extends Component {
     });
   };
 
-  endRound = id => {
-    const safeParseInt = newScore => {
-      const safeNewScore = parseInt(newScore);
-      return Number.isNaN(safeNewScore) ? 0 : safeNewScore;
-    };
-    let newScore = safeParseInt(parseInt(prompt('How many points?')));
-    if (newScore > 0) {
-      let newScores = this.state.gameSettings.players.map(player =>
-        player.id === id
-          ? { ...player, score: player.score + newScore }
-          : player,
-      );
-      const topScorer = newScores.slice().sort(function (a, b) {
-        return b.score - a.score;
-      })[0];
-      this.setState(
-        {
-          gameStats: {
-            ...this.state.gameStats,
-            roundsPlayed: this.state.gameStats.roundsPlayed + 1,
-            topScorer,
-          },
-          gameSettings: {
-            ...this.state.gameSettings,
-            players: [...newScores],
-          },
+  scoreFormToggle = id => {
+    let clickedPlayer = this.state.gameSettings.players.map(player =>
+      player.id === id ? { ...player, scoreForm: !player.scoreForm } : player,
+    );
+    this.setState({
+      gameSettings: { ...this.state.gameSettings, players: clickedPlayer },
+    });
+  };
+
+  addScore = (id, score) => {
+    let newScores = this.state.gameSettings.players.map(player =>
+      player.id === id
+        ? { ...player, score: player.score + score, scoreForm: false }
+        : player,
+    );
+    const topScorer = newScores.slice().sort(function (a, b) {
+      return b.score - a.score;
+    })[0];
+    this.setState(
+      {
+        gameStats: {
+          ...this.state.gameStats,
+          roundsPlayed: this.state.gameStats.roundsPlayed + 1,
+          topScorer,
         },
-        () => this.winCheck(),
-      );
-    }
+        gameSettings: {
+          ...this.state.gameSettings,
+          players: [...newScores],
+        },
+      },
+      () => this.winCheck(),
+    );
   };
 
   winCheck = () => {
@@ -116,6 +118,7 @@ class App extends Component {
     const { players, winScore } = this.state.gameSettings;
     const resetPlayers = players.map(player => {
       player.score = 0;
+      player.scoreFrom = false;
       return player;
     });
     this.setState({
@@ -149,7 +152,8 @@ class App extends Component {
               <GameWindow
                 gameSettings={this.state.gameSettings}
                 gameStats={this.state.gameStats}
-                endRound={this.endRound}
+                scoreFormToggle={this.scoreFormToggle}
+                addScore={this.addScore}
                 endGame={this.endGame}
               />
             )}

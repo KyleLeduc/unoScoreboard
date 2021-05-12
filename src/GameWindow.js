@@ -14,14 +14,16 @@ export default class GameWindow extends Component {
 
   renderPlayerList = () => {
     return this.props.gameSettings.players.map(player => {
-      const { key, id, name, score } = player;
+      const { key, id, name, score, scoreForm } = player;
       return (
         <Player
           key={key}
           id={id}
           name={name}
           score={score}
-          handleEndRound={this.props.endRound}
+          scoreForm={scoreForm}
+          addScore={this.props.addScore}
+          scoreFormToggle={this.props.scoreFormToggle}
           playing={this.props.gameStats.playing}
         />
       );
@@ -38,7 +40,7 @@ export default class GameWindow extends Component {
 
     switch (msg) {
       case 'newGame':
-        return <h4>Select the round winners name to begin</h4>;
+        return <h4>Select the round winner's name add their score</h4>;
       case 'gamePlaying':
         return (
           <h4>{`${topScorer.name} is ${
@@ -60,9 +62,7 @@ export default class GameWindow extends Component {
           )}
           {this.renderMessage()}
           {this.renderPlayerList()}
-          <Link
-            className="GameWindow-endGame"
-            onClick={this.props.endGame}>
+          <Link className="GameWindow-endGame" onClick={this.props.endGame}>
             End Game
           </Link>
         </div>

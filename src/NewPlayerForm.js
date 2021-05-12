@@ -12,7 +12,13 @@ export default class NewPlayerForm extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     const key = uuid();
-    this.props.handleClick({ ...this.state, key, id: key, score: 0 });
+    this.props.handleClick({
+      ...this.state,
+      key,
+      id: key,
+      score: 0,
+      scoreForm: false,
+    });
     this.setState({ name: '' });
   };
   handleChange = evt => {
