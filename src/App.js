@@ -42,8 +42,8 @@ class App extends Component {
 
   removePlayer = id => {
     const newPlayerList = this.state.gameSettings.players.filter(
-        player => player.id !== id,
-      );
+      player => player.id !== id,
+    );
     this.setState({
       gameSettings: {
         ...this.state.gameSettings,
@@ -69,27 +69,35 @@ class App extends Component {
   };
 
   endRound = id => {
-    let newScore = parseInt(prompt('How many points?'));
-    let newScores = this.state.gameSettings.players.map(player =>
-      player.id === id ? { ...player, score: player.score + newScore } : player,
-    );
-    const topScorer = newScores.slice().sort(function (a, b) {
-      return b.score - a.score;
-    })[0];
-    this.setState(
-      {
-        gameStats: {
-          ...this.state.gameStats,
-          roundsPlayed: this.state.gameStats.roundsPlayed + 1,
-          topScorer,
+    const safeParseInt = newScore => {
+      const safeNewScore = parseInt(newScore);
+      return Number.isNaN(safeNewScore) ? 0 : safeNewScore;
+    };
+    let newScore = safeParseInt(parseInt(prompt('How many points?')));
+    if (newScore > 0) {
+      let newScores = this.state.gameSettings.players.map(player =>
+        player.id === id
+          ? { ...player, score: player.score + newScore }
+          : player,
+      );
+      const topScorer = newScores.slice().sort(function (a, b) {
+        return b.score - a.score;
+      })[0];
+      this.setState(
+        {
+          gameStats: {
+            ...this.state.gameStats,
+            roundsPlayed: this.state.gameStats.roundsPlayed + 1,
+            topScorer,
+          },
+          gameSettings: {
+            ...this.state.gameSettings,
+            players: [...newScores],
+          },
         },
-        gameSettings: {
-          ...this.state.gameSettings,
-          players: [...newScores],
-        },
-      },
-      () => this.winCheck(),
-    );
+        () => this.winCheck(),
+      );
+    }
   };
 
   winCheck = () => {
