@@ -35,7 +35,7 @@ export default class NewPlayerForm extends Component {
         <Button
           type="submit"
           className="NewPlayerForm-button"
-          style={{ backgroundColor: '#379711' }}>
+          style={{ backgroundColor: '#379711', color: 'white' }}>
           <PersonAddOutlinedIcon />
         </Button>
       </form>

@@ -8,9 +8,6 @@ import './Lobby.css';
 export default class Lobby extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      winScore: 500,
-    };
   }
 
   renderPlayerList = () => {
@@ -21,9 +18,7 @@ export default class Lobby extends Component {
           key={key}
           id={id}
           name={name}
-          score={score}
           handleRemove={this.props.removePlayer}
-          playing={this.props.playing}
         />
       );
     });
@@ -36,6 +31,7 @@ export default class Lobby extends Component {
           <h1>Uno Score Tracker</h1>
           <GameSettingsForm
             winScore={this.props.gameSettings.winScore}
+            updateWinScore={this.props.updateWinScore}
             startGame={this.props.startGame}
           />
           <NewPlayerForm handleClick={this.props.addPlayer} />

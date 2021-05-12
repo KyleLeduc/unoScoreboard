@@ -2,14 +2,24 @@
   margin: 0;
 }
 
-.GameWindow {
+.GameWindow-wrap {
   display: flex;
   flex-direction: column;
   align-self: center;
   max-width: 350px;
+  padding: 1em;
+  background-color: white;
+  border-radius: 15%;
+  margin-top: 2vh;
+}
+
+.GameWindow {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
   padding: 1em 0;
-  border: 1em solid white;
-  border-radius: 7%;
+  /* border: 1em solid white; */
+  border-radius: 15%;
   background-color: #379711;
 }
 

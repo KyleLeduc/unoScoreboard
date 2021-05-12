@@ -1,11 +1,25 @@
-.Scoreboard {
+.Scoreboard h1 {
+  margin: 0;
+}
+
+.Scoreboard-wrap {
   display: flex;
   flex-direction: column;
   align-self: center;
   max-width: 350px;
+  padding: 1em;
+  background-color: white;
+  border-radius: 15%;
+  margin-top: 2vh;
+}
+
+.Scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  /* max-width: 350px; */
   padding: 1em 0;
-  border: 1em solid white;
-  border-radius: 7%;
+  border-radius: 15%;
   background-color: #0956bf;
 }
 

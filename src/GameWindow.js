@@ -52,19 +52,21 @@ export default class GameWindow extends Component {
   };
   render() {
     return (
-      <div className="GameWindow">
-        <h1>Uno Score Tracker</h1>
-        {this.props.gameStats.playing ? undefined : (
-          <Redirect to="/game-over" />
-        )}
-        {this.renderMessage()}
-        {this.renderPlayerList()}
-        <Link
-          className="GameWindow-endGame"
-          to="/"
-          onClick={this.props.endGame}>
-          End Game
-        </Link>
+      <div className="GameWindow-wrap">
+        <div className="GameWindow">
+          <h1>Uno Score Tracker</h1>
+          {this.props.gameStats.playing ? undefined : (
+            <Redirect to="/game-over" />
+          )}
+          {this.renderMessage()}
+          {this.renderPlayerList()}
+          <Link
+            className="GameWindow-endGame"
+            to="/"
+            onClick={this.props.endGame}>
+            End Game
+          </Link>
+        </div>
       </div>
     );
   }
