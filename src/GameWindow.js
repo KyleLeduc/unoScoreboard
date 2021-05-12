@@ -62,7 +62,6 @@ export default class GameWindow extends Component {
           {this.renderPlayerList()}
           <Link
             className="GameWindow-endGame"
-            to="/"
             onClick={this.props.endGame}>
             End Game
           </Link>
