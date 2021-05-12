@@ -31,21 +31,30 @@ class App extends Component {
   }
 
   addPlayer = newPlayer => {
+    const newPlayerList = [...this.state.gameSettings.players, newPlayer];
     this.setState(st => ({
       gameSettings: {
-        players: [...this.state.gameSettings.players, newPlayer],
+        ...this.state.gameSettings,
+        players: [...newPlayerList],
       },
     }));
   };
 
   removePlayer = id => {
+    const newPlayerList = this.state.gameSettings.players.filter(
+        player => player.id !== id,
+      );
     this.setState({
       gameSettings: {
-        players: this.state.gameSettings.players.filter(
-          player => player.id !== id,
-        ),
+        ...this.state.gameSettings,
+        players: newPlayerList,
       },
     });
+  };
+
+  updateWinScore = newWinScore => {
+    const gameSettings = { ...this.state.gameSettings, winScore: newWinScore };
+    this.setState({ gameSettings });
   };
 
   startGame = winScore => {
@@ -119,6 +128,7 @@ class App extends Component {
                 gameSettings={this.state.gameSettings}
                 addPlayer={this.addPlayer}
                 removePlayer={this.removePlayer}
+                updateWinScore={this.updateWinScore}
                 startGame={this.startGame}
                 playing={this.state.gameStats.playing}
               />

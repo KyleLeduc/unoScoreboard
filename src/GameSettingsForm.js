@@ -8,12 +8,19 @@ export default class GameSettingsForm extends Component {
   }
   handleSubmit = evt => {
     evt.preventDefault();
+    console.log('submitted')
   };
   handleChange = evt => {
     const { name, value } = evt.target;
+    const safeParseInt = (winScore) => {
+      const safeWinScore = parseInt(winScore.replace(/\D/, ''));
+      return Number.isNaN(safeWinScore) ? 0 : safeWinScore;
+    }
+    this.props.updateWinScore(safeParseInt(value));
+
     this.setState({
       // prevents non number values from being input
-      [name]: parseInt(value.replace(/\D/, '')),
+      [name]: safeParseInt(value),
     });
   };
   render() {
