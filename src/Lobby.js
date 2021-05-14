@@ -1,46 +1,81 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/styles';
 import NewPlayerForm from './NewPlayerForm';
 import GameSettingsForm from './GameSettingsForm';
 import Player from './Player';
-import './Lobby.css';
 
-export default class Lobby extends Component {
-  renderPlayerList = () => {
-    return this.props.gameSettings.players.map(player => {
-      const { key, id, name } = player;
-      return (
-        <Player
-          key={key}
-          id={id}
-          name={name}
-          handleRemove={this.props.removePlayer}
-        />
-      );
-    });
-  };
+const styles = {
+  border: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignSelf: 'center',
+    maxWidth: '350px',
+    padding: '1em',
+    backgroundColor: 'white',
+    borderRadius: '15%',
+    marginTop: '2vh',
+  },
+  title: {
+    margin: '0',
+  },
 
-  render() {
-    return (
-      <div className="Lobby-wrap">
-        <div className="Lobby">
-          <h1>Uno Score Tracker</h1>
-          <GameSettingsForm
-            winScore={this.props.gameSettings.winScore}
-            updateWinScore={this.props.updateWinScore}
-            startGame={this.props.startGame}
+  lobby: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignSelf: 'center',
+    padding: '1em 0',
+    borderRadius: '15%',
+    backgroundColor: '#ecd407',
+  },
+
+  startGame: {
+    marginTop: '2rem',
+    textDecoration: 'none',
+    textStroke: '0.75px black',
+    color: 'white',
+  },
+};
+
+export default withStyles(styles)(
+  class Lobby extends Component {
+    renderPlayerList = () => {
+      return this.props.gameSettings.players.map(player => {
+        const { key, id, name } = player;
+        return (
+          <Player
+            key={key}
+            id={id}
+            name={name}
+            handleRemove={this.props.removePlayer}
           />
-          <NewPlayerForm handleClick={this.props.addPlayer} />
-          {this.renderPlayerList()}
+        );
+      });
+    };
 
-          <Link
-            className="Lobby-startGame"
-            to="/game"
-            onClick={() => this.props.startGame(this.state)}>
-            Start Game
-          </Link>
+    render() {
+      const { classes, gameSettings, startGame, addPlayer, updateWinScore } =
+        this.props;
+      return (
+        <div className={classes.border}>
+          <div className={classes.lobby}>
+            <h1 className={classes.title}>Uno Score Tracker</h1>
+            <GameSettingsForm
+              winScore={gameSettings.winScore}
+              updateWinScore={updateWinScore}
+            />
+            <NewPlayerForm handleClick={addPlayer} />
+            {this.renderPlayerList()}
+
+            <Link
+              className={classes.startGame}
+              to="/game"
+              onClick={() => startGame(this.state)}>
+              Start Game
+            </Link>
+          </div>
         </div>
-      </div>
-    );
-  }
-}
+      );
+    }
+  },
+);
