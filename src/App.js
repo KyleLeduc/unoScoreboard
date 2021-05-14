@@ -3,7 +3,19 @@ import { Switch, Route } from 'react-router-dom';
 import Lobby from './Lobby';
 import GameWindow from './GameWindow';
 import Scoreboard from './Scoreboard';
-import './App.css';
+import { withStyles } from '@material-ui/styles';
+
+const styles = {
+  app: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'center',
+    textAlign: 'center',
+    height: 'fit-content',
+    margin: 'auto',
+    width: '90%',
+  },
+};
 
 class App extends Component {
   static defaultProps = {
@@ -128,8 +140,9 @@ class App extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div className="App">
+      <div className={classes.app}>
         <Switch>
           <Route
             exact
@@ -175,4 +188,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
