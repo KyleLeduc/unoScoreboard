@@ -25,8 +25,8 @@ const styles = {
     color: 'white',
     backgroundColor: '#379711',
     '&:hover': {
-      backgroundColor: 'hsl(103, 80%, 29%)'
-    }
+      backgroundColor: 'hsl(103, 80%, 29%)',
+    },
   },
 };
 
@@ -66,7 +66,11 @@ export default withStyles(styles)(
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <Button type="submit" size="small" className={classes.addButton}>
+          <Button
+            disabled={this.state.name.length <= 0 ? true : undefined}
+            type="submit"
+            size="small"
+            className={classes.addButton}>
             <PersonAddOutlinedIcon />
           </Button>
         </form>
