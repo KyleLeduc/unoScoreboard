@@ -6,16 +6,6 @@ import GameSettingsForm from './GameSettingsForm';
 import Player from './Player';
 
 const styles = {
-  border: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'center',
-    maxWidth: '350px',
-    padding: '1em',
-    backgroundColor: 'white',
-    borderRadius: '15%',
-    marginTop: '2vh',
-  },
   title: {
     margin: '0',
   },
@@ -57,23 +47,21 @@ export default withStyles(styles)(
       const { classes, gameSettings, startGame, addPlayer, updateWinScore } =
         this.props;
       return (
-        <div className={classes.border}>
-          <div className={classes.lobby}>
-            <h1 className={classes.title}>Uno Score Tracker</h1>
-            <GameSettingsForm
-              winScore={gameSettings.winScore}
-              updateWinScore={updateWinScore}
-            />
-            <NewPlayerForm handleClick={addPlayer} />
-            {this.renderPlayerList()}
+        <div className={classes.lobby}>
+          <h1 className={classes.title}>Uno Score Tracker</h1>
+          <GameSettingsForm
+            winScore={gameSettings.winScore}
+            updateWinScore={updateWinScore}
+          />
+          <NewPlayerForm handleClick={addPlayer} />
+          {this.renderPlayerList()}
 
-            <Link
-              className={classes.startGame}
-              to="/game"
-              onClick={() => startGame(this.state)}>
-              Start Game
-            </Link>
-          </div>
+          <Link
+            className={classes.startGame}
+            to="/game"
+            onClick={() => startGame(this.state)}>
+            Start Game
+          </Link>
         </div>
       );
     }

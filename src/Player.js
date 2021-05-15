@@ -19,7 +19,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     margin: '10px',
-  }
+  },
 };
 
 export default withStyles(styles)(
@@ -34,7 +34,7 @@ export default withStyles(styles)(
         scoreForm,
         playing,
         addScore,
-        classes
+        classes,
       } = this.props;
 
       const removeButton = (

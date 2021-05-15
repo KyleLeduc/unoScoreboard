@@ -4,16 +4,6 @@ import { withStyles } from '@material-ui/styles';
 import Player from './Player';
 
 const styles = {
-  border: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'center',
-    maxWidth: '350px',
-    padding: '1em',
-    backgroundColor: 'white',
-    borderRadius: '15%',
-    marginTop: '2vh',
-  },
   title: {
     margin: '0',
   },
@@ -88,18 +78,16 @@ export default withStyles(styles)(
     render() {
       const { classes } = this.props;
       return (
-        <div className={classes.border}>
-          <div className={classes.gameWindow}>
-            <h1 className={classes.title}>Uno Score Tracker</h1>
-            {this.props.gameStats.playing ? undefined : (
-              <Redirect to="/game-over" />
-            )}
-            {this.renderMessage()}
-            {this.renderPlayerList()}
-            <Link className={classes.endGame} onClick={this.props.endGame}>
-              End Game
-            </Link>
-          </div>
+        <div className={classes.gameWindow}>
+          <h1 className={classes.title}>Uno Score Tracker</h1>
+          {this.props.gameStats.playing ? undefined : (
+            <Redirect to="/game-over" />
+          )}
+          {this.renderMessage()}
+          {this.renderPlayerList()}
+          <Link className={classes.endGame} onClick={this.props.endGame}>
+            End Game
+          </Link>
         </div>
       );
     }

@@ -13,7 +13,11 @@ const styles = {
     textAlign: 'center',
     height: 'fit-content',
     margin: 'auto',
-    width: '90%',
+    maxWidth: '400px',
+    padding: '1.2em',
+    backgroundColor: 'white',
+    borderRadius: '15%',
+    marginTop: '2vh',
   },
 };
 

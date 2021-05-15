@@ -3,16 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
 
 const styles = {
-  border: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'center',
-    maxWidth: '350px',
-    padding: '1em',
-    backgroundColor: 'white',
-    borderRadius: '15%',
-    marginTop: '2vh',
-  },
   title: {
     margin: '0',
   },
@@ -44,25 +34,23 @@ export default withStyles(styles)(
       const { topScorer } = this.props.gameStats;
       const { players } = this.props.gameSettings;
       return (
-        <div className={classes.border}>
-          <div className={classes.scoreBoard}>
-            <h1 className={classes.title}>Uno Score Tracker</h1>
-            {Object.keys(topScorer).length === 0 ? (
-              <Redirect to="/" />
-            ) : undefined}
-            <h2
-              className={
-                classes.message
-              }>{`${topScorer.name} wins with ${topScorer.score} points!`}</h2>
-            {players.map(player => {
-              return (
-                <div key={player.id}>{`${player.name} - ${player.score}`}</div>
-              );
-            })}
-            <Link className={classes.newGame} onClick={resetGame} to="/">
-              New Game
-            </Link>
-          </div>
+        <div className={classes.scoreBoard}>
+          <h1 className={classes.title}>Uno Score Tracker</h1>
+          {Object.keys(topScorer).length === 0 ? (
+            <Redirect to="/" />
+          ) : undefined}
+          <h2
+            className={
+              classes.message
+            }>{`${topScorer.name} wins with ${topScorer.score} points!`}</h2>
+          {players.map(player => {
+            return (
+              <div key={player.id}>{`${player.name} - ${player.score}`}</div>
+            );
+          })}
+          <Link className={classes.newGame} onClick={resetGame} to="/">
+            New Game
+          </Link>
         </div>
       );
     }
