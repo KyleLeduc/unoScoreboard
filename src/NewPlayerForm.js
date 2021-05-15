@@ -10,11 +10,11 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignSelf: 'center',
-    width: '60%',
-    maxWidth: '300px',
+    width: '80%',
   },
   nameInput: {
     marginRight: '1rem',
+    width: '100%',
     flexGrow: '2',
     boxShadow: '-1px 1px 3px black',
     borderRadius: '5px',
@@ -24,6 +24,9 @@ const styles = {
     boxShadow: '-1px 1px 3px black',
     color: 'white',
     backgroundColor: '#379711',
+    '&:hover': {
+      backgroundColor: 'hsl(103, 80%, 29%)'
+    }
   },
 };
 
@@ -63,7 +66,7 @@ export default withStyles(styles)(
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <Button type="submit" className={classes.addButton}>
+          <Button type="submit" size="small" className={classes.addButton}>
             <PersonAddOutlinedIcon />
           </Button>
         </form>

@@ -13,12 +13,17 @@ const styles = {
   },
   removeButton: {
     boxShadow: '-1px 1px 3px black',
+    backgroundColor: '#d72600',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '	hsl(11, 100%, 38%)',
+    }
   },
   playerName: {
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '10px',
+    margin: '10px 0',
   },
 };
 
@@ -41,9 +46,8 @@ export default withStyles(styles)(
         <Button
           size="small"
           className={classes.removeButton}
-          onClick={() => handleRemove(id)}
-          style={{ backgroundColor: '#d72600' }}>
-          <DeleteIcon style={{ color: 'white' }} />
+          onClick={() => handleRemove(id)}>
+          <DeleteIcon />
         </Button>
       );
       const player = (

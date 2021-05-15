@@ -3,18 +3,18 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
   gameSettingsForm: {
-    width: '70%',
-    alignContent: 'center',
+    margin: '1rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignSelf: 'center',
-    maxWidth: '300px',
-    marginTop: '1em',
+    width: '80%',
   },
   winScoreInput: {
     marginTop: '5px',
     boxShadow: '-1px 1px 3px black',
     borderRadius: '5px',
     border: '1px solid gray',
-    width: '100%',
   },
 };
 
