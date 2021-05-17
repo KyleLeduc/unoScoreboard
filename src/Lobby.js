@@ -26,14 +26,17 @@ const styles = {
     color: 'white',
   },
 
-  startGameDisabled: {
-    marginTop: '1rem',
-    textDecoration: 'none',
-    color: '	#999999',
-    cursor: 'not-allowed',
-    textStroke: '0.05px black',
-    textShadow: '-1px 1px 0px black',
-  },
+  startGameDisabled: props =>
+    props.gameSettings.players.length < 2
+      ? {
+          marginTop: '1rem',
+          textDecoration: 'none',
+          color: '	#999999',
+          cursor: 'not-allowed',
+          textStroke: '0.05px black',
+          textShadow: '-1px 1px 0px black',
+        }
+      : undefined,
 };
 
 export default withStyles(styles)(
@@ -55,17 +58,7 @@ export default withStyles(styles)(
     render() {
       const { classes, gameSettings, startGame, addPlayer, updateWinScore } =
         this.props;
-      const startButton =
-        gameSettings.players.length > 1 ? (
-          <Link
-            className={classes.startGame}
-            to="/game"
-            onClick={() => startGame(this.state)}>
-            Start Game
-          </Link>
-        ) : (
-          <Link className={classes.startGameDisabled}>Start Game</Link>
-        );
+      const gameIsReady = this.props.gameSettings.players.length > 1;
       return (
         <div className={classes.lobby}>
           <h1 className={classes.title}>Uno Score Tracker</h1>
@@ -78,7 +71,12 @@ export default withStyles(styles)(
 
           {this.renderPlayerList()}
 
-          {startButton}
+          <Link
+            className={`${classes.startGame} ${classes.startGameDisabled}`}
+            to={gameIsReady ? '/game' : '#'}
+            onClick={() => startGame(this.state)}>
+            Start Game
+          </Link>
         </div>
       );
     }
