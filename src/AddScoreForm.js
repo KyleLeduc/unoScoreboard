@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { Input } from '@material-ui/core';
 
 export default class AddScoreForm extends Component {
   constructor(props) {
@@ -7,16 +8,19 @@ export default class AddScoreForm extends Component {
     this.state = { score: '' };
   }
   handleSubmit = evt => {
-    const { id } = this.props;
     evt.preventDefault();
-    this.props.addScore(id, this.state.score);
-    this.setState({ score: '' });
+    const { id, addScore, scoreFormToggle } = this.props;
+    const { score } = this.state;
+    if (score > 0) {
+      addScore(id, score);
+    } else {
+      scoreFormToggle(id);
+    }
   };
   handleChange = evt => {
     const { name, value } = evt.target;
-    const safeParseInt = addScore => {
-      const safeAddScore = parseInt(addScore.replace(/\D/, ''));
-      return Number.isNaN(safeAddScore) ? 0 : safeAddScore;
+    const safeParseInt = score => {
+      return parseInt(score.replace(/\D/, ''));
     };
     this.setState({
       [name]: safeParseInt(value),
@@ -26,10 +30,15 @@ export default class AddScoreForm extends Component {
     return (
       <div>
         <form className="AddScoreForm" onSubmit={this.handleSubmit}>
-          <input
+          <Input
             className="AddScoreForm-Input"
             id="score"
             name="score"
+            type="number"
+            min="0"
+            step="1"
+            autoFocus
+            autoComplete="off"
             placeholder="Enter the score"
             value={this.state.score}
             onChange={this.handleChange}
