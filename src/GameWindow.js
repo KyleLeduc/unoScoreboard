@@ -85,7 +85,7 @@ export default withStyles(styles)(
           )}
           {this.renderMessage()}
           {this.renderPlayerList()}
-          <Link className={classes.endGame} onClick={this.props.endGame}>
+          <Link className={classes.endGame} to="#" onClick={this.props.endGame}>
             End Game
           </Link>
         </div>
