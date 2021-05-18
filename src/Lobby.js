@@ -29,8 +29,6 @@ const styles = {
   startGameDisabled: props =>
     props.gameSettings.players.length < 2
       ? {
-          marginTop: '1rem',
-          textDecoration: 'none',
           color: '	#999999',
           cursor: 'not-allowed',
           textStroke: '0.05px black',
