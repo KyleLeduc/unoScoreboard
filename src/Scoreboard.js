@@ -2,30 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
 
-const styles = {
-  title: {
-    margin: '0',
-  },
-  message: {
-    width: '95%',
-    textAlign: 'center',
-  },
-  scoreBoard: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'center',
-    padding: '1em 0',
-    borderRadius: '15%',
-    backgroundColor: '#0956bf',
-  },
-
-  newGame: {
-    marginTop: '2rem',
-    textDecoration: 'none',
-    textStroke: '0.75px black',
-    color: 'white',
-  },
-};
+import styles from './styles/ScoreboardStyles';
 
 export default withStyles(styles)(
   class ScoreBoard extends Component {
