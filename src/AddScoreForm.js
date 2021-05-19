@@ -3,13 +3,7 @@ import Button from '@material-ui/core/Button';
 import { TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 
-const styles = {
-  AddScoreForm: {
-    display: 'flex',
-    textShadow: 'none',
-    textStroke: '0',
-  },
-};
+import styles from './styles/AddScoreFormStyles';
 
 export default withStyles(styles)(
   class AddScoreForm extends Component {

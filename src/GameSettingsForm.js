@@ -1,22 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/styles';
 
-const styles = {
-  gameSettingsForm: {
-    margin: '1rem',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    width: '80%',
-  },
-  winScoreInput: {
-    marginTop: '5px',
-    boxShadow: '-1px 1px 3px black',
-    borderRadius: '5px',
-    border: '1px solid gray',
-  },
-};
+import styles from './styles/GameSettingsFormStyles';
 
 export default withStyles(styles)(
   class GameSettingsForm extends Component {

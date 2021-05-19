@@ -4,28 +4,7 @@ import Button from '@material-ui/core/Button';
 import AddScoreForm from './AddScoreForm';
 import { withStyles } from '@material-ui/styles';
 
-const styles = {
-  player: {
-    display: 'flex',
-    alignItems: 'baseline',
-    alignSelf: 'center',
-    width: '80%',
-  },
-  removeButton: {
-    boxShadow: '-1px 1px 3px black',
-    backgroundColor: '#d72600',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '	hsl(11, 100%, 38%)',
-    }
-  },
-  playerName: {
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '10px 0',
-  },
-};
+import styles from './styles/PlayerStyles'
 
 export default withStyles(styles)(
   class Player extends Component {
