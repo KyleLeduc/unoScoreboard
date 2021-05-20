@@ -43,6 +43,7 @@ export default withStyles(styles)(
               size="small"
               autoFocus
               autoComplete="off"
+              inputProps={{ inputMode: 'numeric' }}
               label="Enter the Score"
               value={this.state.score}
               onChange={this.handleChange}

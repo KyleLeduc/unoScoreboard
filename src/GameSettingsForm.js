@@ -35,6 +35,7 @@ export default withStyles(styles)(
             className={classes.winScoreInput}
             id="winScore"
             name="winScore"
+            inputMode="numeric"
             value={this.state.winScore}
             onChange={this.handleChange}
           />
