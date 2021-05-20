@@ -13,7 +13,7 @@ const styles = theme => ({
     borderRadius: '5px',
     textShadow: 'none',
     textStroke: '0',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)'
+    backgroundColor: 'hsl(100, 100%, 100%)',
   },
   addButton: {
     boxShadow: '-1px 1px 3px black',
