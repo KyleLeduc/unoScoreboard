@@ -1,4 +1,4 @@
-const styles = {
+const styles = theme => ({
   newPlayerForm: {
     margin: '1rem',
     display: 'flex',
@@ -18,10 +18,15 @@ const styles = {
     boxShadow: '-1px 1px 3px black',
     color: 'white',
     backgroundColor: '#379711',
-    '&:hover': {
+    '&&:hover': {
       backgroundColor: 'hsl(103, 80%, 29%)',
     },
+    '&&:disabled': {
+      backgroundColor: 'hsl(103, 65%, 29%)',
+      color: 'white',
+      cursor: 'not-allowed',
+    },
   },
-};
+});
 
 export default styles;
