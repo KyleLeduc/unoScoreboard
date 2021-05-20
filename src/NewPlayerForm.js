@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import { withStyles } from '@material-ui/styles';
 
-import styles from './styles/NewPlayerFormStyles'
+import styles from './styles/NewPlayerFormStyles';
 
 export default withStyles(styles)(
   class NewPlayerForm extends Component {
@@ -43,7 +43,7 @@ export default withStyles(styles)(
             onChange={this.handleChange}
           />
           <Button
-            disabled={this.state.name.length <= 0 ? true : undefined}
+            disabled={this.state.name.length <= 0}
             type="submit"
             size="small"
             className={classes.addButton}>
