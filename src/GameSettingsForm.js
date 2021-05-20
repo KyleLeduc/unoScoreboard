@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 
 import styles from './styles/GameSettingsFormStyles';
@@ -30,15 +31,18 @@ export default withStyles(styles)(
       const { classes } = this.props;
       return (
         <form className={classes.gameSettingsForm} onSubmit={this.handleSubmit}>
-          <label htmlFor="winScore">Winning Score: </label>
-          <input
-            className={classes.winScoreInput}
-            id="winScore"
-            name="winScore"
-            inputMode="numeric"
-            value={this.state.winScore}
-            onChange={this.handleChange}
-          />
+          <TextField
+              className={classes.winScoreInput}
+              id="winScore"
+              name="winScore"
+              variant="filled"
+              size="small"
+              autoComplete="off"
+              inputProps={{ inputMode: 'numeric' }}
+              label="Winning Score"
+              value={this.state.winScore}
+              onChange={this.handleChange}
+            />
         </form>
       );
     }

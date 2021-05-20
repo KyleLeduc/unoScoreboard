@@ -8,10 +8,13 @@ const styles = {
     width: '80%',
   },
   winScoreInput: {
-    marginTop: '5px',
+
+    width: '100%',
     boxShadow: '-1px 1px 3px black',
     borderRadius: '5px',
-    border: '1px solid gray',
+    textShadow: 'none',
+    textStroke: '0',
+    backgroundColor: '#fff',
   },
 };
 
