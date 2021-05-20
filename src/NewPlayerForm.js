@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
+import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import { withStyles } from '@material-ui/styles';
@@ -34,14 +35,17 @@ export default withStyles(styles)(
       const { classes } = this.props;
       return (
         <form className={classes.newPlayerForm} onSubmit={this.handleSubmit}>
-          <input
-            className={classes.nameInput}
-            id="name"
-            name="name"
-            placeholder="Player Name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
+          <TextField
+              className={classes.nameInput}
+              id="name"
+              name="name"
+              variant="filled"
+              size="small"
+              autoComplete="off"
+              label="Player Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
           <Button
             disabled={this.state.name.length <= 0}
             type="submit"

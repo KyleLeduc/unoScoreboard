@@ -7,12 +7,13 @@ const styles = theme => ({
     width: '80%',
   },
   nameInput: {
-    marginRight: '1rem',
+    marginRight: '10px',
     width: '100%',
-    flexGrow: '2',
     boxShadow: '-1px 1px 3px black',
     borderRadius: '5px',
-    border: '1px solid gray',
+    textShadow: 'none',
+    textStroke: '0',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)'
   },
   addButton: {
     boxShadow: '-1px 1px 3px black',
