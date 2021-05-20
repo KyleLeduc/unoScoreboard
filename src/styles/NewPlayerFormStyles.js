@@ -23,7 +23,7 @@ const styles = theme => ({
     },
     '&&:disabled': {
       backgroundColor: 'hsl(103, 65%, 29%)',
-      color: 'white',
+      color: 'hsl(100, 0%, 80%)',
       cursor: 'not-allowed',
     },
   },
