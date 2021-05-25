@@ -72,7 +72,7 @@ class App extends Component {
 
   scoreFormToggle = id => {
     let clickedPlayer = this.state.gameSettings.players.map(player =>
-      player.id === id ? { ...player, scoreForm: !player.scoreForm } : player,
+      player.id === id ? { ...player, scoreForm: !player.scoreForm } : { ...player, scoreForm: false },
     );
     this.setState({
       gameSettings: { ...this.state.gameSettings, players: clickedPlayer },
