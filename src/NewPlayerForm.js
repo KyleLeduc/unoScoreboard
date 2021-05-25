@@ -13,10 +13,10 @@ export default withStyles(styles)(
       super(props);
       this.state = { name: '' };
     }
-    handleSubmit = evt => {
+    handleClick = evt => {
       evt.preventDefault();
       const key = uuid();
-      this.props.handleClick({
+      this.props.addPlayer({
         ...this.state,
         key,
         id: key,
@@ -34,7 +34,7 @@ export default withStyles(styles)(
     render() {
       const { classes } = this.props;
       return (
-        <form className={classes.newPlayerForm} onSubmit={this.handleSubmit}>
+        <div className={classes.newPlayerForm}>
           <TextField
               className={classes.nameInput}
               id="name"
@@ -50,10 +50,11 @@ export default withStyles(styles)(
             disabled={this.state.name.length <= 0}
             type="submit"
             size="small"
-            className={classes.addButton}>
+            className={classes.addButton}
+            onClick={this.handleClick}>
             <PersonAddOutlinedIcon />
           </Button>
-        </form>
+        </div>
       );
     }
   },

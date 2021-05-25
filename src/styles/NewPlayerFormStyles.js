@@ -4,7 +4,7 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignSelf: 'center',
-    width: '80%',
+    width: '100%',
   },
   nameInput: {
     marginRight: '10px',
