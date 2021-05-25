@@ -120,7 +120,7 @@ class App extends Component {
     const { players, winScore } = this.state.gameSettings;
     const resetPlayers = players.map(player => {
       player.score = 0;
-      player.scoreFrom = false;
+      player.scoreForm = false;
       return player;
     });
     this.setState({
