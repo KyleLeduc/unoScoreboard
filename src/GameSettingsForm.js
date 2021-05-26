@@ -83,7 +83,7 @@ export default withStyles(styles)(
           />
           <NewPlayerForm addPlayer={this.addPlayer} gameReady={gameReady} />
           {this.renderPlayerList()}
-          <Button disabled={!gameReady} type="submit">
+          <Button className={classes.startButton} disabled={!gameReady} type="submit">
             Start Game
           </Button>
         </ValidatorForm>
