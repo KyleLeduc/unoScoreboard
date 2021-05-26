@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/styles';
 import GameSettingsForm from './GameSettingsForm';
-import Player from './Player';
+// import Player from './Player';
 
 import styles from './styles/LobbyStyles';
 
 export default withStyles(styles)(
   class Lobby extends Component {
-    renderPlayerList = () => {
-      return this.props.gameSettings.players.map(player => {
-        const { key, id, name } = player;
-        return (
-          <Player
-            key={key}
-            id={id}
-            name={name}
-            handleRemove={this.props.removePlayer}
-          />
-        );
-      });
-    };
+    // renderPlayerList = () => {
+    //   return this.props.gameSettings.players.map(player => {
+    //     const { key, id, name } = player;
+    //     return (
+    //       <Player
+    //         key={key}
+    //         id={id}
+    //         name={name}
+    //         handleRemove={this.props.removePlayer}
+    //       />
+    //     );
+    //   });
+    // };
 
     render() {
       const { classes, gameSettings, addPlayer, updateWinScore, startGame } =
@@ -32,11 +32,11 @@ export default withStyles(styles)(
           <GameSettingsForm
             winScore={gameSettings.winScore}
             updateWinScore={updateWinScore}
-            addPlayer={addPlayer}
+            // addPlayer={addPlayer}
             gameSettings={gameSettings}
             startGame={startGame}
           />
-          {this.renderPlayerList()}
+          {/* {this.renderPlayerList()} */}
         </div>
       );
     }
