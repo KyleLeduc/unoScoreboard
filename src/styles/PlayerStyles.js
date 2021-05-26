@@ -3,7 +3,7 @@ const styles = {
     display: 'flex',
     alignItems: 'baseline',
     alignSelf: 'center',
-    width: '80%',
+    width: '100%',
   },
   removeButton: {
     boxShadow: '-1px 1px 3px black',
