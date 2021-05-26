@@ -1,14 +1,12 @@
 const styles = theme => ({
   newPlayerForm: {
-    margin: '1rem',
+    margin: '1rem 0',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignSelf: 'center',
     width: '100%',
   },
   nameInput: {
-    marginRight: '10px',
-    width: '100%',
     boxShadow: '-1px 1px 3px black',
     borderRadius: '5px',
     textShadow: 'none',
