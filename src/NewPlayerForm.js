@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
-import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
+import { TextValidator } from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/styles';
 
 import styles from './styles/NewPlayerFormStyles';
@@ -35,17 +35,21 @@ export default withStyles(styles)(
       const { classes } = this.props;
       return (
         <div className={classes.newPlayerForm}>
-          <TextField
-              className={classes.nameInput}
-              id="name"
-              name="name"
-              variant="filled"
-              size="small"
-              autoComplete="off"
-              label="Player Name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
+          <TextValidator
+            className={classes.nameInput}
+            error={!this.props.gameReady}
+            helperText={!this.props.gameReady ? 'Minimum 2 players' : ''}
+            id="name"
+            name="name"
+            variant="filled"
+            size="small"
+            autoComplete="off"
+            label="Player Name"
+            value={this.state.name}
+            validators={['maxStringLength:10']}
+            errorMessages={['Max name length exceeded']}
+            onChange={this.handleChange}
+          />
           <Button
             disabled={this.state.name.length <= 0}
             type="submit"
