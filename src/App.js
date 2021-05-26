@@ -5,7 +5,7 @@ import GameWindow from './GameWindow';
 import Scoreboard from './Scoreboard';
 import { withStyles } from '@material-ui/styles';
 
-import styles from './styles/AppStyles'
+import styles from './styles/AppStyles';
 
 class App extends Component {
   static defaultProps = {
@@ -37,14 +37,16 @@ class App extends Component {
     this.setState({
       gameStats: { ...gameStats, playing: true },
       gameSettings: {
-        ...gameSettings
+        ...gameSettings,
       },
     });
   };
 
   scoreFormToggle = id => {
     let clickedPlayer = this.state.gameSettings.players.map(player =>
-      player.id === id ? { ...player, scoreForm: !player.scoreForm } : { ...player, scoreForm: false },
+      player.id === id
+        ? { ...player, scoreForm: !player.scoreForm }
+        : { ...player, scoreForm: false },
     );
     this.setState({
       gameSettings: { ...this.state.gameSettings, players: clickedPlayer },
