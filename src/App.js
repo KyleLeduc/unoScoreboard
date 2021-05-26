@@ -32,40 +32,12 @@ class App extends Component {
     };
   }
 
-  addPlayer = newPlayer => {
-    const newPlayerList = [...this.state.gameSettings.players, newPlayer];
-    this.setState(st => ({
-      gameSettings: {
-        ...this.state.gameSettings,
-        players: [...newPlayerList],
-      },
-    }));
-  };
-
-  removePlayer = id => {
-    const newPlayerList = this.state.gameSettings.players.filter(
-      player => player.id !== id,
-    );
-    this.setState({
-      gameSettings: {
-        ...this.state.gameSettings,
-        players: newPlayerList,
-      },
-    });
-  };
-
-  updateWinScore = newWinScore => {
-    const gameSettings = { ...this.state.gameSettings, winScore: newWinScore };
-    this.setState({ gameSettings });
-  };
-
-  startGame = winScore => {
-    const { gameSettings, gameStats } = this.state;
+  startGame = gameSettings => {
+    const { gameStats } = this.state;
     this.setState({
       gameStats: { ...gameStats, playing: true },
       gameSettings: {
-        ...gameSettings,
-        ...winScore,
+        ...gameSettings
       },
     });
   };
