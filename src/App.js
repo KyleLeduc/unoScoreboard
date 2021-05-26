@@ -114,9 +114,6 @@ class App extends Component {
             render={routeProps => (
               <Lobby
                 gameSettings={this.state.gameSettings}
-                addPlayer={this.addPlayer}
-                removePlayer={this.removePlayer}
-                updateWinScore={this.updateWinScore}
                 startGame={this.startGame}
                 playing={this.state.gameStats.playing}
               />
