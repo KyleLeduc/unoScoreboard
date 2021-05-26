@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/styles';
 import Player from './Player';
 
-import styles from './styles/GameWindowStyles'
+import styles from './styles/GameWindowStyles';
 
 export default withStyles(styles)(
   class GameWindow extends Component {
@@ -59,15 +60,20 @@ export default withStyles(styles)(
       const { classes } = this.props;
       return (
         <div className={classes.gameWindow}>
-          <h1 className={classes.title}>Uno Score Tracker</h1>
-          {this.props.gameStats.playing ? undefined : (
-            <Redirect to="/game-over" />
-          )}
-          {this.renderMessage()}
-          {this.renderPlayerList()}
-          <Link className={classes.endGame} to="#" onClick={this.props.endGame}>
-            End Game
-          </Link>
+          <div className={classes.gameWindowDisplay}>
+            {/* <h1 className={classes.title}>Uno Score Tracker</h1> */}
+            {this.props.gameStats.playing ? undefined : (
+              <Redirect to="/game-over" />
+            )}
+            {this.renderMessage()}
+            {this.renderPlayerList()}
+            <Button
+              className={classes.endGame}
+              to="#"
+              onClick={this.props.endGame}>
+              End Game
+            </Button>
+          </div>
         </div>
       );
     }

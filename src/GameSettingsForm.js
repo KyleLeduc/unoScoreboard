@@ -13,7 +13,10 @@ export default withRouter(
     class GameSettingsForm extends Component {
       constructor(props) {
         super(props);
-        this.state = { winScore: 500, players: this.props.gameSettings.players };
+        this.state = {
+          winScore: 500,
+          players: this.props.gameSettings.players,
+        };
       }
       addPlayer = newPlayer => {
         const newPlayerList = [...this.state.players, newPlayer];
@@ -85,13 +88,13 @@ export default withRouter(
               onChange={this.handleChange}
             />
             <NewPlayerForm addPlayer={this.addPlayer} gameReady={gameReady} />
-            {this.renderPlayerList()}
             <Button
               className={classes.startButton}
               disabled={!gameReady}
               type="submit">
               Start Game
             </Button>
+            {this.renderPlayerList()}
           </ValidatorForm>
         );
       }

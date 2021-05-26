@@ -1,25 +1,32 @@
 const styles = {
-  title: {
-    margin: '0',
-  },
   message: {
-    width: '95%',
     textAlign: 'center',
+    fontSize: '1.2em',
   },
   scoreBoard: {
     display: 'flex',
     flexDirection: 'column',
-    alignSelf: 'center',
+    alignItems: 'center',
     padding: '1em 0',
     borderRadius: '15%',
     backgroundColor: '#0956bf',
   },
-
+  scoreBoardDisplay: {
+    width: '80%',
+  },
   newGame: {
-    marginTop: '2rem',
-    textDecoration: 'none',
-    textStroke: '0.75px black',
+    margin: '1em 0',
+    fontWeight: '900',
+    fontSize: '1em',
+    textShadow: 'inherit',
+    textStroke: 'inherit',
+    backgroundColor: 'hsl(103, 80%, 29%)',
+    '&&:hover': {
+      backgroundColor: '#379711',
+    },
+    boxShadow: '-1px 1px 3px black',
     color: 'white',
+    width: '100%',
   },
 };
 

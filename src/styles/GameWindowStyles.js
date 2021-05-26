@@ -6,17 +6,27 @@ const styles = {
   gameWindow: {
     display: 'flex',
     flexDirection: 'column',
-    alignSelf: 'center',
+    alignItems: 'center',
     padding: '1em 0',
     borderRadius: '15%',
     backgroundColor: '#379711',
   },
-
+  gameWindowDisplay: {
+    width: '80%',
+  },
   endGame: {
-    marginTop: '2rem',
-    textDecoration: 'none',
-    textStroke: '0.75px black',
+    marginTop: '1rem',
+    fontWeight: '900',
+    fontSize: '1.2em',
+    textShadow: 'inherit',
+    textStroke: 'inherit',
+    backgroundColor: '	hsl(11, 100%, 38%)',
+    boxShadow: '-1px 1px 3px black',
     color: 'white',
+    width: '100%',
+    '&&:hover': {
+      backgroundColor: '#d72600',
+    },
   },
 };
 

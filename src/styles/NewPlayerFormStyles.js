@@ -1,6 +1,6 @@
 const styles = theme => ({
   newPlayerForm: {
-    margin: '1rem 0',
+    margin: '0.75em 0',
     display: 'flex',
     justifyContent: 'space-between',
     alignSelf: 'center',
@@ -16,9 +16,9 @@ const styles = theme => ({
   addButton: {
     boxShadow: '-1px 1px 3px black',
     color: 'white',
-    backgroundColor: '#379711',
+    backgroundColor: 'hsl(103, 80%, 29%)',
     '&&:hover': {
-      backgroundColor: 'hsl(103, 80%, 29%)',
+      backgroundColor: '#379711',
     },
     '&&:disabled': {
       backgroundColor: 'hsl(103, 65%, 29%)',

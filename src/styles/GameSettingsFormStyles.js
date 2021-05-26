@@ -16,20 +16,20 @@ const styles = {
     backgroundColor: '#fff',
   },
   startButton: {
-    marginTop: '1rem',
+    marginBottom: '0.75em',
     fontWeight: '900',
-    fontSize: '1.2em',
+    fontSize: '1em',
     textShadow: 'inherit',
     textStroke: 'inherit',
-    backgroundColor: '#0956bf',
+    backgroundColor: 'hsl(215, 91%, 35%)',
     boxShadow: '-1px 1px 3px black',
     color: 'white',
     '&&:disabled': {
-      backgroundColor: 'rgba(0, 0, 0, 0.1)',
-      color: 'white',
+      backgroundColor: 'hsl(215, 91%, 28%)',
+      color: 'hsl(100, 0%, 80%)',
     },
     '&&:hover': {
-      backgroundColor: 'hsl(215, 91%, 35%)',
+      backgroundColor: '#0956bf',
     },
   },
 };

@@ -7,10 +7,10 @@ const styles = {
   },
   removeButton: {
     boxShadow: '-1px 1px 3px black',
-    backgroundColor: '#d72600',
+    backgroundColor: '	hsl(11, 100%, 38%)',
     color: 'white',
     '&:hover': {
-      backgroundColor: '	hsl(11, 100%, 38%)',
+      backgroundColor: '#d72600',
     },
   },
   playerName: {
