@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Button from '@material-ui/core/Button';
-import AddScoreForm from './AddScoreForm';
-import { withStyles } from '@material-ui/styles';
+import React, { Component } from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
+import Button from "@material-ui/core/Button";
+import AddScoreForm from "./AddScoreForm";
+import { withStyles } from "@material-ui/styles";
 
-import styles from './styles/PlayerStyles'
+import styles from "./styles/PlayerStyles";
 
 export default withStyles(styles)(
   class Player extends Component {
@@ -25,14 +25,16 @@ export default withStyles(styles)(
         <Button
           size="small"
           className={classes.removeButton}
-          onClick={() => handleRemove(id)}>
+          onClick={() => handleRemove(id)}
+        >
           <DeleteIcon />
         </Button>
       );
       const player = (
         <h3
           className={classes.playerName}
-          onClick={() => (scoreFormToggle ? scoreFormToggle(id) : undefined)}>
+          onClick={() => (scoreFormToggle ? scoreFormToggle(id) : undefined)}
+        >
           <span>{name}</span>
           {playing ? score : removeButton}
         </h3>
@@ -51,5 +53,5 @@ export default withStyles(styles)(
         </div>
       );
     }
-  },
+  }
 );

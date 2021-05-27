@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { v4 as uuid } from 'uuid';
-import Button from '@material-ui/core/Button';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import { TextValidator } from 'react-material-ui-form-validator';
-import { withStyles } from '@material-ui/styles';
+import React, { Component } from "react";
+import { v4 as uuid } from "uuid";
+import Button from "@material-ui/core/Button";
+import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
+import { TextValidator } from "react-material-ui-form-validator";
+import { withStyles } from "@material-ui/styles";
 
-import styles from './styles/NewPlayerFormStyles';
+import styles from "./styles/NewPlayerFormStyles";
 
 export default withStyles(styles)(
   class NewPlayerForm extends Component {
     constructor(props) {
       super(props);
-      this.state = { name: '' };
+      this.state = { name: "" };
     }
-    handleClick = evt => {
+    handleClick = (evt) => {
       evt.preventDefault();
       const key = uuid();
       this.props.addPlayer({
@@ -23,9 +23,9 @@ export default withStyles(styles)(
         score: 0,
         scoreForm: false,
       });
-      this.setState({ name: '' });
+      this.setState({ name: "" });
     };
-    handleChange = evt => {
+    handleChange = (evt) => {
       const { name, value } = evt.target;
       this.setState({
         [name]: value,
@@ -38,7 +38,7 @@ export default withStyles(styles)(
           <TextValidator
             className={classes.nameInput}
             error={!this.props.gameReady}
-            helperText={!this.props.gameReady ? 'Minimum 2 players' : ''}
+            helperText={!this.props.gameReady ? "Minimum 2 players" : ""}
             id="name"
             name="name"
             variant="filled"
@@ -46,8 +46,8 @@ export default withStyles(styles)(
             autoComplete="off"
             label="Player Name"
             value={this.state.name}
-            validators={['maxStringLength:10']}
-            errorMessages={['Max name length exceeded']}
+            validators={["maxStringLength:10"]}
+            errorMessages={["Max name length exceeded"]}
             onChange={this.handleChange}
           />
           <Button
@@ -55,11 +55,12 @@ export default withStyles(styles)(
             type="submit"
             size="small"
             className={classes.addButton}
-            onClick={this.handleClick}>
+            onClick={this.handleClick}
+          >
             <PersonAddOutlinedIcon />
           </Button>
         </div>
       );
     }
-  },
+  }
 );

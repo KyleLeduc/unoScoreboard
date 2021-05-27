@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/styles';
-import Player from './Player';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/styles";
+import Player from "./Player";
 
-import styles from './styles/GameWindowStyles';
+import styles from "./styles/GameWindowStyles";
 
 export default withStyles(styles)(
   class GameWindow extends Component {
@@ -17,7 +17,7 @@ export default withStyles(styles)(
     }
 
     renderPlayerList = () => {
-      return this.props.gameSettings.players.map(player => {
+      return this.props.gameSettings.players.map((player) => {
         const { key, id, name, score, scoreForm } = player;
         return (
           <Player
@@ -39,13 +39,13 @@ export default withStyles(styles)(
       const { topScorer } = this.props.gameStats;
       const msg =
         topScorer && Object.keys(topScorer).length > 0
-          ? 'gamePlaying'
-          : 'newGame';
+          ? "gamePlaying"
+          : "newGame";
 
       switch (msg) {
-        case 'newGame':
+        case "newGame":
           return <h4>Select the round winner's name add their score</h4>;
-        case 'gamePlaying':
+        case "gamePlaying":
           return (
             <h4>{`${topScorer.name} is ${
               winScore - topScorer.score
@@ -70,12 +70,13 @@ export default withStyles(styles)(
             <Button
               className={classes.endGame}
               to="#"
-              onClick={this.props.endGame}>
+              onClick={this.props.endGame}
+            >
               End Game
             </Button>
           </div>
         </div>
       );
     }
-  },
+  }
 );

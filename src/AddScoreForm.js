@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
-import { TextField } from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
+import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
+import { TextField } from "@material-ui/core";
+import { withStyles } from "@material-ui/styles";
 
-import styles from './styles/AddScoreFormStyles';
+import styles from "./styles/AddScoreFormStyles";
 
 export default withStyles(styles)(
   class AddScoreForm extends Component {
     constructor(props) {
       super(props);
-      this.state = { score: '' };
+      this.state = { score: "" };
     }
-    handleSubmit = evt => {
+    handleSubmit = (evt) => {
       evt.preventDefault();
       const { id, addScore, scoreFormToggle } = this.props;
       const { score } = this.state;
@@ -21,10 +21,10 @@ export default withStyles(styles)(
         scoreFormToggle(id);
       }
     };
-    handleChange = evt => {
+    handleChange = (evt) => {
       const { name, value } = evt.target;
-      const safeParseInt = score => {
-        return parseInt(score.replace(/\D/, ''));
+      const safeParseInt = (score) => {
+        return parseInt(score.replace(/\D/, ""));
       };
       this.setState({
         [name]: safeParseInt(value),
@@ -43,7 +43,7 @@ export default withStyles(styles)(
               size="small"
               autoFocus
               autoComplete="off"
-              inputProps={{ inputMode: 'numeric' }}
+              inputProps={{ inputMode: "numeric" }}
               label="Enter the Score"
               value={this.state.score}
               onChange={this.handleChange}
@@ -51,18 +51,20 @@ export default withStyles(styles)(
             <Button
               type="submit"
               size="small"
-              style={{ backgroundColor: 'blue', color: 'white' }}>
+              style={{ backgroundColor: "blue", color: "white" }}
+            >
               +
             </Button>
             <Button
               onClick={() => this.props.scoreFormToggle(this.props.id)}
               size="small"
-              style={{ backgroundColor: 'red', color: 'white' }}>
+              style={{ backgroundColor: "red", color: "white" }}
+            >
               X
             </Button>
           </form>
         </div>
       );
     }
-  },
+  }
 );

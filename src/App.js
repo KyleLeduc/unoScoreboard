@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Lobby from './Lobby';
-import GameWindow from './GameWindow';
-import Scoreboard from './Scoreboard';
-import { withStyles } from '@material-ui/styles';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import Lobby from "./Lobby";
+import GameWindow from "./GameWindow";
+import Scoreboard from "./Scoreboard";
+import { withStyles } from "@material-ui/styles";
 
-import styles from './styles/AppStyles';
+import styles from "./styles/AppStyles";
 
 class App extends Component {
   static defaultProps = {
@@ -32,7 +32,7 @@ class App extends Component {
     };
   }
 
-  startGame = gameSettings => {
+  startGame = (gameSettings) => {
     const { gameStats } = this.state;
     this.setState({
       gameStats: { ...gameStats, playing: true },
@@ -42,11 +42,11 @@ class App extends Component {
     });
   };
 
-  scoreFormToggle = id => {
-    let clickedPlayer = this.state.gameSettings.players.map(player =>
+  scoreFormToggle = (id) => {
+    let clickedPlayer = this.state.gameSettings.players.map((player) =>
       player.id === id
         ? { ...player, scoreForm: !player.scoreForm }
-        : { ...player, scoreForm: false },
+        : { ...player, scoreForm: false }
     );
     this.setState({
       gameSettings: { ...this.state.gameSettings, players: clickedPlayer },
@@ -54,10 +54,10 @@ class App extends Component {
   };
 
   addScore = (id, score) => {
-    let newScores = this.state.gameSettings.players.map(player =>
+    let newScores = this.state.gameSettings.players.map((player) =>
       player.id === id
         ? { ...player, score: player.score + score, scoreForm: false }
-        : player,
+        : player
     );
     const topScorer = newScores.slice().sort(function (a, b) {
       return b.score - a.score;
@@ -74,7 +74,7 @@ class App extends Component {
           players: [...newScores],
         },
       },
-      () => this.winCheck(),
+      () => this.winCheck()
     );
   };
 
@@ -92,7 +92,7 @@ class App extends Component {
 
   resetGame = () => {
     const { players, winScore } = this.state.gameSettings;
-    const resetPlayers = players.map(player => {
+    const resetPlayers = players.map((player) => {
       player.score = 0;
       player.scoreForm = false;
       return player;
@@ -111,7 +111,7 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={routeProps => (
+            render={(routeProps) => (
               <Lobby
                 gameSettings={this.state.gameSettings}
                 startGame={this.startGame}
@@ -122,7 +122,7 @@ class App extends Component {
           <Route
             exact
             path="/game"
-            render={routeProps => (
+            render={(routeProps) => (
               <GameWindow
                 gameSettings={this.state.gameSettings}
                 gameStats={this.state.gameStats}
@@ -135,7 +135,7 @@ class App extends Component {
           <Route
             exact
             path="/game-over"
-            render={routeProps => (
+            render={(routeProps) => (
               <Scoreboard
                 gameStats={this.state.gameStats}
                 gameSettings={this.state.gameSettings}

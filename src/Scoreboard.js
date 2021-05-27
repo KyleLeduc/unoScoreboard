@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/styles';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/styles";
 
-import styles from './styles/ScoreboardStyles';
+import styles from "./styles/ScoreboardStyles";
 
 export default withStyles(styles)(
   class ScoreBoard extends Component {
@@ -18,10 +18,9 @@ export default withStyles(styles)(
               <Redirect to="/" />
             ) : undefined}
             <h2
-              className={
-                classes.message
-              }>{`${topScorer.name} wins with ${topScorer.score} points!`}</h2>
-            {players.map(player => {
+              className={classes.message}
+            >{`${topScorer.name} wins with ${topScorer.score} points!`}</h2>
+            {players.map((player) => {
               return (
                 <div key={player.id}>{`${player.name} - ${player.score}`}</div>
               );
@@ -33,5 +32,5 @@ export default withStyles(styles)(
         </div>
       );
     }
-  },
+  }
 );

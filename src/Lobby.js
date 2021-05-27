@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/styles';
-import GameSettingsForm from './GameSettingsForm';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/styles";
+import GameSettingsForm from "./GameSettingsForm";
 
-import styles from './styles/LobbyStyles';
+import styles from "./styles/LobbyStyles";
 
 export default withStyles(styles)(
   class Lobby extends Component {
     render() {
-      const { classes, gameSettings, updateWinScore, startGame } =
-        this.props;
+      const { classes, gameSettings, updateWinScore, startGame } = this.props;
 
       return (
         <div className={classes.lobby}>
@@ -23,5 +22,5 @@ export default withStyles(styles)(
         </div>
       );
     }
-  },
+  }
 );

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import NewPlayerForm from './NewPlayerForm';
-import Player from './Player';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/styles';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import NewPlayerForm from "./NewPlayerForm";
+import Player from "./Player";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/styles";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
-import styles from './styles/GameSettingsFormStyles';
+import styles from "./styles/GameSettingsFormStyles";
 
 export default withRouter(
   withStyles(styles)(
@@ -18,37 +18,37 @@ export default withRouter(
           players: this.props.gameSettings.players,
         };
       }
-      addPlayer = newPlayer => {
+      addPlayer = (newPlayer) => {
         const newPlayerList = [...this.state.players, newPlayer];
-        this.setState(st => ({
+        this.setState((st) => ({
           players: [...newPlayerList],
         }));
       };
-      removePlayer = id => {
+      removePlayer = (id) => {
         const newPlayerList = this.state.players.filter(
-          player => player.id !== id,
+          (player) => player.id !== id
         );
         this.setState({
           players: newPlayerList,
         });
       };
-      handleSubmit = evt => {
+      handleSubmit = (evt) => {
         evt.preventDefault();
         const gameSettings = {
           ...this.state,
           winScore: parseInt(this.state.winScore),
         };
         this.props.startGame(gameSettings);
-        this.props.history.push('/game');
+        this.props.history.push("/game");
       };
-      handleChange = evt => {
+      handleChange = (evt) => {
         const { name, value } = evt.target;
         this.setState({
           [name]: value,
         });
       };
       renderPlayerList = () => {
-        return this.state.players.map(player => {
+        return this.state.players.map((player) => {
           const { key, id, name } = player;
           return (
             <Player
@@ -68,21 +68,22 @@ export default withRouter(
             ref="form"
             instantValidate={true}
             className={classes.gameSettingsForm}
-            onSubmit={this.handleSubmit}>
+            onSubmit={this.handleSubmit}
+          >
             <TextValidator
               className={classes.winScoreInput}
               id="winScore"
               name="winScore"
               variant="filled"
               size="small"
-              validators={['required', 'isNumber', 'isPositive']}
+              validators={["required", "isNumber", "isPositive"]}
               errorMessages={[
-                'Enter a winning score',
-                'Must be a number',
-                'Number must be positive',
+                "Enter a winning score",
+                "Must be a number",
+                "Number must be positive",
               ]}
               autoComplete="off"
-              inputProps={{ inputMode: 'numeric' }}
+              inputProps={{ inputMode: "numeric" }}
               label="Winning Score"
               value={this.state.winScore}
               onChange={this.handleChange}
@@ -91,13 +92,14 @@ export default withRouter(
             <Button
               className={classes.startButton}
               disabled={!gameReady}
-              type="submit">
+              type="submit"
+            >
               Start Game
             </Button>
             {this.renderPlayerList()}
           </ValidatorForm>
         );
       }
-    },
-  ),
+    }
+  )
 );
