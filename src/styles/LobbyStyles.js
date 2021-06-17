@@ -6,6 +6,7 @@ const styles = {
   lobby: {
     display: "flex",
     flexDirection: "column",
+    flexGrow: "1",
     alignSelf: "center",
     padding: "1em 0",
     borderRadius: "15%",

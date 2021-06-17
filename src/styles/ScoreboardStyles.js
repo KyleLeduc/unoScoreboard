@@ -6,6 +6,7 @@ const styles = {
   scoreBoard: {
     display: "flex",
     flexDirection: "column",
+    flexGrow: "1",
     alignItems: "center",
     padding: "1em 0",
     borderRadius: "15%",

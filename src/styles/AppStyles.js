@@ -11,6 +11,7 @@ const styles = {
     backgroundColor: "white",
     borderRadius: "15%",
     marginTop: "2vh",
+    minHeight: "500px",
   },
 };
 
